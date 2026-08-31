@@ -9,7 +9,7 @@
   --color-wm-surface: #f3f4f6;
   --color-wm-surface-2: #e5e7eb;
 
-  --font-sans: var(--font-poppins), "Poppins", system-ui, sans-serif;
+  --font-sans: var(--font-inter), "Inter", system-ui, sans-serif;
 }
 
 :root {

@@ -13,12 +13,13 @@ const initial: FormState = { name: "", contact: "", message: "" };
 export default function ContactForm() {
   const [data, setData] = useState<FormState>(initial);
   const [sent, setSent] = useState(false);
+  const [method, setMethod] = useState<"whatsapp" | "email">("whatsapp");
 
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     // TODO: integrasikan ke backend/email service (Resend, Formspree, dsb).
     // Untuk sekarang cukup log + tampilkan state sukses di UI.
-    console.log("[Webmula] contact form submitted:", data);
+    console.log("[Webmula] contact form submitted:", data, method);
     setSent(true);
     setData(initial);
   }
@@ -88,6 +89,31 @@ export default function ContactForm() {
             onSubmit={onSubmit}
             className="rounded-2xl border border-wm-surface-2 bg-white p-6 shadow-sm md:p-8"
           >
+            {/* Tab switcher */}
+            <div className="mb-6 flex rounded-xl border border-wm-surface-2 bg-wm-surface p-1">
+              <button
+                type="button"
+                onClick={() => setMethod("whatsapp")}
+                className={`flex-1 rounded-lg py-2 text-sm font-medium transition ${
+                  method === "whatsapp"
+                    ? "bg-white text-wm-ink shadow-sm"
+                    : "text-wm-ink/60 hover:text-wm-ink"
+                }`}
+              >
+                ✆ WhatsApp
+              </button>
+              <button
+                type="button"
+                onClick={() => setMethod("email")}
+                className={`flex-1 rounded-lg py-2 text-sm font-medium transition ${
+                  method === "email"
+                    ? "bg-white text-wm-ink shadow-sm"
+                    : "text-wm-ink/60 hover:text-wm-ink"
+                }`}
+              >
+                ✉ Email
+              </button>
+            </div>
             {sent && (
               <div
                 role="status"
@@ -108,12 +134,15 @@ export default function ContactForm() {
               />
             </label>
             <label className="mt-4 block text-sm font-medium text-wm-ink">
-              Nomor WhatsApp atau Email
+              {" "}
+              {method === "whatsapp"
+                ? "Nomor WhatsApp"
+                : "Alamat Email"}
               <input
                 required
                 value={data.contact}
                 onChange={(e) => setData({ ...data, contact: e.target.value })}
-                placeholder="08xxx atau kamu@email.com"
+                placeholder={method === "whatsapp" ? "08xxx" : "kamu@email.com"}
                 className="mt-1.5 w-full rounded-xl border border-wm-surface-2 bg-wm-surface px-4 py-2.5 text-sm outline-none transition focus:border-wm-primary focus:bg-white"
               />
             </label>

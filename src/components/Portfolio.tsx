@@ -1,49 +1,34 @@
 type Project = {
   name: string;
-  category: "Company Profile" | "Toko Online" | "Landing Page";
+  category: string;
   blurb: string;
-  // TODO: ganti dengan data asli + URL project live + thumbnail gambar asli
-  // Untuk sekarang placeholder, warna di-generate dari kombinasi tailwind biar variatif.
-  thumb: "coffee" | "clinic" | "roastery" | "fashion";
+  thumb: "coffee" | "beauty" | "fashion" | "food";
 };
 
-// Kurangi dari 6 → 4 project
 const projects: Project[] = [
   {
-    name: "Toko Kopi Nusantara",
-    category: "Toko Online",
-    blurb: "Katalog biji kopi single-origin + langganan bulanan via WhatsApp.",
+    name: "Kopi Senja",
+    category: "Coffee Shop",
+    blurb: "Website untuk coffee shop dengan menu dan lokasi.",
     thumb: "coffee",
   },
   {
-    name: "Klinik Sehat Bersama",
-    category: "Company Profile",
-    blurb: "Profil layanan, jadwal dokter, dan form pendaftaran pasien baru.",
-    thumb: "clinic",
+    name: "Glow Skincare",
+    category: "Skincare & Beauty",
+    blurb: "Katalog produk skincare dengan booking konsultasi.",
+    thumb: "beauty",
   },
   {
-    name: "Roastery Gunung Lawu",
-    category: "Landing Page",
-    blurb: "Halaman tunggal untuk pre-order edisi terbatas musim panen.",
-    thumb: "roastery",
-  },
-  {
-    name: "Butik Batik Anjani",
-    category: "Toko Online",
-    blurb: "Katalog koleksi batik modern + checkout payment gateway.",
+    name: "Minimalist Closet",
+    category: "Fashion Store",
+    blurb: "Toko online fashion dengan checkout payment gateway.",
     thumb: "fashion",
   },
   {
-    name: "Butik Batik Anjani",
-    category: "Toko Online",
-    blurb: "Katalog koleksi batik modern + checkout payment gateway.",
-    thumb: "fashion",
-  },
-  {
-    name: "Butik Batik Anjani",
-    category: "Toko Online",
-    blurb: "Katalog koleksi batik modern + checkout payment gateway.",
-    thumb: "fashion",
+    name: "Dapur Bu Sari",
+    category: "Catering Service",
+    blurb: "Layanan catering dengan menu dan pemesanan online.",
+    thumb: "food",
   },
 ];
 
@@ -52,9 +37,9 @@ const projects: Project[] = [
 function Thumb({ kind }: { kind: Project["thumb"] }) {
   const map: Record<Project["thumb"], { from: string; to: string; glyph: string }> = {
     coffee: { from: "from-wm-primary", to: "to-wm-sky", glyph: "☕" },
-    clinic: { from: "from-wm-sky", to: "to-wm-mint", glyph: "🩺" },
-    roastery: { from: "from-wm-ink", to: "to-wm-primary", glyph: "🌋" },
-    fashion: { from: "from-wm-mint", to: "to-wm-sky", glyph: "👗" },
+    beauty: { from: "from-pink-400", to: "to-pink-200", glyph: "💆" },
+    fashion: { from: "from-wm-ink", to: "to-wm-primary", glyph: "👗" },
+    food: { from: "from-orange-400", to: "to-yellow-200", glyph: "🍳" },
   };
   const c = map[kind];
   return (
@@ -73,21 +58,16 @@ export default function Portfolio() {
   return (
     <section id="portfolio" className="bg-white">
       <div className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-24">
-        <div className="max-w-3xl">
+        <div className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-semibold uppercase tracking-wider text-wm-primary">
             Hasil Kerja
           </p>
           <h2 className="mt-3 text-3xl font-bold leading-tight text-wm-ink md:text-4xl">
             Beberapa website yang sudah kami bantu launching.
           </h2>
-          <p className="mt-4 text-sm text-wm-ink/70 md:text-base">
-            {/* TODO: replace dengan data project asli + link live. */}
-            Daftar di bawah adalah placeholder untuk contoh tampilan. Data
-            asli akan diganti setelah project riil tersedia.
-          </p>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {projects.map((p) => (
             <article
               key={p.name}
