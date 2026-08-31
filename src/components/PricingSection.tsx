@@ -300,7 +300,7 @@ function PackageCard({ pkg }: { pkg: Pkg }) {
 
 export default function PricingSection() {
   return (
-    <section id="paket" className="bg-wm-surface">
+    <section id="harga" className="bg-wm-surface">
       <div className="mx-auto max-w-[1200px] px-6 py-20 md:px-8 md:py-28">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.08em] text-wm-primary">

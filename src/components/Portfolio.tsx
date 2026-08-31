@@ -1,58 +1,39 @@
+import Link from "next/link";
+import ProjectImage from "./ProjectImage";
+
 type Project = {
   name: string;
   category: string;
   blurb: string;
-  thumb: "coffee" | "beauty" | "fashion" | "food";
+  url: string;
 };
 
 const projects: Project[] = [
   {
-    name: "Kopi Senja",
-    category: "Coffee Shop",
-    blurb: "Website untuk coffee shop dengan menu dan lokasi.",
-    thumb: "coffee",
+    name: "Klinik Utama Nikita Farla",
+    category: "Company Profile",
+    blurb: "Klinik spesialis keluarga di Tulungagung dengan pelayanan cepat, dokter peduli, dan rating 4.9 dari 265 ulasan Google.",
+    url: "https://nikita-farla.vercel.app",
   },
   {
-    name: "Glow Skincare",
-    category: "Skincare & Beauty",
-    blurb: "Katalog produk skincare dengan booking konsultasi.",
-    thumb: "beauty",
+    name: "Tesla Education Center",
+    category: "Company Profile",
+    blurb: "Bimbingan belajar Tulungagung dengan pengajar asik, suasana nyaman, dan rating 5.0 dari 17 ulasan Google.",
+    url: "https://tesla-education-center.vercel.app",
   },
   {
-    name: "Minimalist Closet",
-    category: "Fashion Store",
-    blurb: "Toko online fashion dengan checkout payment gateway.",
-    thumb: "fashion",
+    name: "Odekorasi",
+    category: "Company Profile",
+    blurb: "Penyewaan dekorasi premium untuk pernikahan, ulang tahun, dan acara perusahaan dengan desain eksklusif.",
+    url: "https://www.okynawa.com",
   },
   {
-    name: "Dapur Bu Sari",
-    category: "Catering Service",
-    blurb: "Layanan catering dengan menu dan pemesanan online.",
-    thumb: "food",
+    name: "Video Belajar Bangkit",
+    category: "Landing Page",
+    blurb: "Platform pembelajaran video interaktif untuk meningkatkan skill digital dan teknologi.",
+    url: "https://videobelajar.bangkit.site",
   },
 ];
-
-// Placeholder thumbnail — kombinasi gradien + emoji biar variatif.
-// TODO: replace dengan <Image> + file asli.
-function Thumb({ kind }: { kind: Project["thumb"] }) {
-  const map: Record<Project["thumb"], { from: string; to: string; glyph: string }> = {
-    coffee: { from: "from-wm-primary", to: "to-wm-sky", glyph: "☕" },
-    beauty: { from: "from-pink-400", to: "to-pink-200", glyph: "💆" },
-    fashion: { from: "from-wm-ink", to: "to-wm-primary", glyph: "👗" },
-    food: { from: "from-orange-400", to: "to-yellow-200", glyph: "🍳" },
-  };
-  const c = map[kind];
-  return (
-    <div
-      className={`relative flex h-44 w-full items-center justify-center bg-gradient-to-br ${c.from} ${c.to} text-5xl text-white/90`}
-    >
-      <span aria-hidden>{c.glyph}</span>
-      <span className="absolute right-3 top-3 rounded-full bg-white/90 px-2 py-0.5 text-[10px] font-semibold text-wm-ink">
-        Placeholder
-      </span>
-    </div>
-  );
-}
 
 export default function Portfolio() {
   return (
@@ -73,7 +54,12 @@ export default function Portfolio() {
               key={p.name}
               className="group overflow-hidden rounded-2xl border border-wm-surface-2 bg-wm-surface transition hover:-translate-y-1 hover:shadow-xl"
             >
-              <Thumb kind={p.thumb} />
+              <div className="aspect-[16/9] overflow-hidden bg-[#dee8ff]">
+                <ProjectImage
+                  url={p.url}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
               <div className="p-5">
                 <span className="text-xs font-semibold uppercase tracking-wider text-wm-primary">
                   {p.category}
@@ -82,9 +68,8 @@ export default function Portfolio() {
                   {p.name}
                 </h3>
                 <p className="mt-1 text-sm text-wm-ink/70">{p.blurb}</p>
-                {/* TODO: ganti href ke URL project live saat data asli tersedia */}
-                <a
-                  href="#kontak"
+                <Link
+                  href="/portofolio"
                   className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-wm-primary hover:text-wm-sky"
                 >
                   Lihat Detail
@@ -102,7 +87,7 @@ export default function Portfolio() {
                     <path d="M5 12h14" />
                     <path d="m12 5 7 7-7 7" />
                   </svg>
-                </a>
+                </Link>
               </div>
             </article>
           ))}

@@ -92,22 +92,24 @@ export default function Process() {
           </h2>
         </div>
 
-        <ol className="relative mt-14 space-y-8 md:grid md:grid-cols-5 md:gap-5">
+        <ol className="relative mt-14 space-y-8 md:grid md:grid-cols-5 md:gap-5 md:items-stretch">
           {/* Connecting line on desktop */}
           <div
             aria-hidden
-            className="absolute left-0 right-0 top-7 hidden h-0.5 bg-gradient-brand md:block"
+            className="absolute left-0 right-0 top-7 hidden h-0.5 bg-gradient-brand md:block z-0"
           />
 
           {steps.map((s) => (
             <li
               key={s.no}
-              className="relative md:flex md:flex-col md:items-center md:text-center"
+              className="relative md:flex md:flex-col md:items-center md:text-center md:h-full z-10"
             >
-              <div className="mb-3 inline-flex h-14 w-14 items-center justify-center rounded-full bg-wm-primary/10 shadow-lg shadow-wm-primary/10">
-                <StepIcon icon={s.icon} />
+              <div className="mb-3 inline-flex h-14 w-14 items-center justify-center rounded-full bg-gradient-brand p-0.5">
+                <div className="h-full w-full flex items-center justify-center rounded-full bg-white">
+                  <StepIcon icon={s.icon} />
+                </div>
               </div>
-              <div className="rounded-2xl border border-wm-surface-2 bg-white p-5 text-left md:mt-2 md:w-full">
+              <div className="rounded-2xl border border-wm-surface-2 bg-white p-5 text-left md:mt-2 md:w-full md:flex-1">
                 <h3 className="text-base font-semibold text-wm-ink">
                   {s.title}
                 </h3>

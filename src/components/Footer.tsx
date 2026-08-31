@@ -1,17 +1,18 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const serviceLinks = [
-  ["Landing Page", "#harga"],
-  ["Business Website", "#harga"],
-  ["Online Store", "#harga"],
-  ["Maintenance", "#kontak"],
+  ["Landing Page", "/#harga"],
+  ["Business Website", "/#harga"],
+  ["Online Store", "/#harga"],
+  ["Maintenance", "/#kontak"],
 ] as const;
 
 const companyLinks = [
-  ["Portfolio", "#portfolio"],
-  ["Tentang Webmula", "#top"],
-  ["FAQ", "#faq"],
-  ["Kontak", "#kontak"],
+  ["Portfolio", "/portofolio"],
+  ["Tentang Webmula", "/"],
+  ["FAQ", "/#faq"],
+  ["Kontak", "/#kontak"],
 ] as const;
 
 export default function Footer() {
@@ -19,12 +20,12 @@ export default function Footer() {
     <footer className="mt-12 w-full border-t border-wm-surface-2 bg-white text-left">
       <div className="mx-auto grid max-w-[1200px] gap-10 px-6 py-16 sm:grid-cols-2 md:grid-cols-4 md:px-8">
         <div className="space-y-4">
-          <a href="#top" className="flex items-center gap-2.5" aria-label="Webmula home">
+          <Link href="/" className="flex items-center gap-2.5" aria-label="Webmula home">
             <Image src="/image/logo-webmula.png" alt="Logo Webmula" width={36} height={36} />
             <span className="text-base font-bold tracking-[-0.04em] text-wm-ink">
               web<span className="text-wm-primary">mula</span>
             </span>
-          </a>
+          </Link>
           <p className="max-w-[220px] text-sm leading-6 text-wm-ink/60">
             Website untuk bisnis yang mau mulai tumbuh.
           </p>
