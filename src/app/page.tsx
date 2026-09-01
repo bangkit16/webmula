@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Portfolio from "@/components/Portfolio";
@@ -52,21 +55,41 @@ const faqs = [
 ];
 
 function FeatureSection() {
+  const cardVariants = {
+    hidden: { opacity: 0, y: 24 },
+    show: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] as const },
+    }),
+  };
+
   return (
     <section id="layanan" className="bg-white">
       <div className="mx-auto max-w-[1200px] px-6 py-20 md:px-8 md:py-28">
-        <div className="mx-auto max-w-2xl text-center">
+        <motion.div
+          className="mx-auto max-w-2xl text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+        >
           <p className="text-sm font-semibold uppercase tracking-[0.08em] text-wm-primary">
             Semua yang kamu butuhkan, tanpa ribet
           </p>
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-wm-ink md:text-4xl text-center">
             Website yang bekerja untuk bisnismu.
           </h2>
-        </div>
+        </motion.div>
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {features.map((feature) => (
-            <article
+          {features.map((feature, i) => (
+            <motion.article
               key={feature.title}
+              custom={i}
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-60px" }}
               className="rounded-2xl border border-wm-surface-2 bg-wm-surface/40 p-6 transition hover:-translate-y-1 hover:border-wm-primary/30 hover:bg-white hover:shadow-[0_10px_15px_-3px_rgba(0,0,0,0.05)]"
             >
               <div className="grid h-12 w-12 place-items-center rounded-xl bg-wm-primary/10">
@@ -99,7 +122,7 @@ function FeatureSection() {
               <p className="mt-2 text-sm leading-relaxed text-wm-ink/70">
                 {feature.body}
               </p>
-            </article>
+            </motion.article>
           ))}
         </div>
       </div>
@@ -112,19 +135,29 @@ function FAQSection() {
   return (
     <section id="faq" className="bg-white">
       <div className="mx-auto max-w-[1200px] px-6 py-20 md:px-8 md:py-28">
-        <div className="mx-auto max-w-2xl text-center">
+        <motion.div
+          className="mx-auto max-w-2xl text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+        >
           <p className="text-sm font-semibold uppercase tracking-[0.08em] text-wm-primary">
             Pertanyaan yang sering ditanyakan
           </p>
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-wm-ink md:text-4xl">
             Punya pertanyaan lain? Cek di sini.
           </h2>
-        </div>
+        </motion.div>
         <div className="mx-auto mt-12 grid max-w-4xl gap-4 md:grid-cols-2">
-          {faqs.map(([question, answer]) => (
-            <details
+          {faqs.map(([question, answer], i) => (
+            <motion.details
               key={question}
-              className="group overflow-hidden rounded-xl border border-wm-surface-2 bg-wm-surface/30"
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] as const }}
+              className="group overflow-hidden rounded-xl border border-wm-surface-2 bg-wm-surface/30 transition hover:-translate-y-1"
             >
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-5 text-sm font-semibold text-wm-ink marker:hidden [&::-webkit-details-marker]:hidden">
                 {question}
@@ -135,7 +168,7 @@ function FAQSection() {
               <p className="border-t border-wm-surface-2 bg-white px-5 pb-5 pt-4 text-sm leading-relaxed text-wm-ink/70">
                 {answer}
               </p>
-            </details>
+            </motion.details>
           ))}
         </div>
       </div>

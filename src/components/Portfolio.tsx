@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 import ProjectImage from "./ProjectImage";
 
 type Project = {
@@ -57,25 +60,36 @@ export default function Portfolio() {
   return (
     <section id="portfolio" className="bg-white">
       <div className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-24">
-        <div className="mx-auto max-w-3xl text-center">
+        <motion.div
+          className="mx-auto max-w-3xl text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+        >
           <p className="text-sm font-semibold uppercase tracking-wider text-wm-primary">
             Hasil Kerja
           </p>
           <h2 className="mt-3 text-3xl font-bold leading-tight text-wm-ink md:text-4xl">
             Beberapa website yang sudah kami bantu launching.
           </h2>
-        </div>
+        </motion.div>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {projects.map((p) => (
-            <article
+          {projects.map((p, i) => (
+            <motion.article
               key={p.name}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.55, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] as const }}
+              // whileHover={{ y: -8 }}
               className="group overflow-hidden rounded-2xl border border-wm-surface-2 bg-wm-surface transition hover:-translate-y-1 hover:shadow-xl"
             >
               <div className="aspect-[16/9] overflow-hidden bg-[#dee8ff]">
                 <ProjectImage
                   url={p.url}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
               <div className="p-5">
@@ -101,13 +115,14 @@ export default function Portfolio() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     aria-hidden
+                    className="transition-transform group-hover:translate-x-1"
                   >
                     <path d="M5 12h14" />
                     <path d="m12 5 7 7-7 7" />
                   </svg>
                 </Link>
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
         <div className="mx-auto mt-12 max-w-3xl text-center">

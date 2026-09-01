@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 type Testimonial = {
   name: string;
   business: string;
@@ -45,7 +49,13 @@ export default function Testimonials() {
   return (
     <section className="bg-wm-surface">
       <div className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-24">
-        <div className="mx-auto max-w-3xl text-center">
+        <motion.div
+          className="mx-auto max-w-3xl text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+        >
           <p className="text-sm font-semibold uppercase tracking-wider text-wm-primary">
             Testimoni Klien
           </p>
@@ -54,13 +64,17 @@ export default function Testimonials() {
             <span className="text-wm-ink">web</span>
             <span className="text-wm-primary">mula</span>.
           </h2>
-        </div>
+        </motion.div>
 
         <div className="mt-12 grid gap-5 md:grid-cols-3">
           {testimonials.map((t, i) => (
-            <figure
+            <motion.figure
               key={t.name}
-              className="flex h-full flex-col gap-4 rounded-2xl border border-wm-surface-2 bg-white p-6"
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.55, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] as const }}
+              className="flex h-full flex-col gap-4 rounded-2xl border border-wm-surface-2 bg-white p-6 transition hover:-translate-y-1 hover:shadow-md"
             >
               <svg
                 width="28"
@@ -84,7 +98,7 @@ export default function Testimonials() {
                   <div className="text-xs text-wm-ink/60">{t.business}</div>
                 </div>
               </figcaption>
-            </figure>
+            </motion.figure>
           ))}
         </div>
       </div>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -39,6 +40,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <link rel="manifest" href="/site.webmanifest"></link>
       </head>
       <body className="min-h-full flex flex-col bg-wm-surface text-wm-ink">
+        <SmoothScroll />
         {children}
       </body>
     </html>

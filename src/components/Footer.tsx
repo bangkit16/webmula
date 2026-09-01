@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const serviceLinks = [
   ["Landing Page", "/#harga"],
@@ -18,8 +21,23 @@ const companyLinks = [
 export default function Footer() {
   return (
     <footer className=" w-full border-t border-wm-surface-2 bg-white text-left">
-      <div className="mx-auto grid max-w-[1200px] gap-10 px-6 py-16 sm:grid-cols-2 md:grid-cols-4 md:px-8">
-        <div className="space-y-4">
+      <motion.div
+        className="mx-auto grid max-w-[1200px] gap-10 px-6 py-16 sm:grid-cols-2 md:grid-cols-4 md:px-8"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-80px" }}
+        variants={{
+          hidden: {},
+          show: { transition: { staggerChildren: 0.08 } },
+        }}
+      >
+        <motion.div
+          className="space-y-4"
+          variants={{
+            hidden: { opacity: 0, y: 16 },
+            show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+          }}
+        >
           <Link
             href="/"
             className="flex items-center gap-2.5"
@@ -44,12 +62,17 @@ export default function Footer() {
           >
             Konsultasi gratis →
           </a>
-        </div>
+        </motion.div>
 
         <FooterLinks title="Layanan" links={serviceLinks} />
         <FooterLinks title="Company" links={companyLinks} />
 
-        <div>
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, y: 16 },
+            show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+          }}
+        >
           <h2 className="text-sm font-bold text-wm-ink">Hubungi Kami</h2>
           <ul className="mt-5 space-y-3 text-sm text-wm-ink/60">
             <li>
@@ -91,8 +114,8 @@ export default function Footer() {
               />
             </li>
           </ul>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
       <div className="border-t border-wm-surface-2">
         <p className="mx-auto max-w-[1200px] px-6 py-5 text-xs text-wm-ink/50 md:px-8">
           © {new Date().getFullYear()} Webmula. Semua hak dilindungi.
@@ -110,7 +133,12 @@ function FooterLinks({
   links: readonly (readonly [string, string])[];
 }) {
   return (
-    <div>
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 16 },
+        show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+      }}
+    >
       <h2 className="text-sm font-bold text-wm-ink">{title}</h2>
       <ul className="mt-5 space-y-3 text-sm text-wm-ink/60">
         {links.map(([label, href]) => (
@@ -121,6 +149,6 @@ function FooterLinks({
           </li>
         ))}
       </ul>
-    </div>
+    </motion.div>
   );
 }

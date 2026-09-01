@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 type PkgFeature = { text: string; included: boolean };
 
@@ -194,8 +195,9 @@ function PackageCard({ pkg }: { pkg: Pkg }) {
   const hasMore = hidden.length > 0;
 
   return (
-    <article
-      className={`relative flex flex-col rounded-2xl border bg-white transition-all ${
+    <motion.article
+      transition={{ type: "spring", stiffness: 260, damping: 22 }}
+      className={`relative flex flex-col rounded-2xl border bg-white transition-all hover:-translate-y-1 ${
         pkg.featured
           ? "border-2 border-wm-primary shadow-[0_15px_30px_-5px_rgba(37,99,235,0.15)] p-7 md:py-10 md:-my-3 lg:py-12 z-10"
           : "border-wm-surface-2 p-7"
@@ -282,7 +284,7 @@ function PackageCard({ pkg }: { pkg: Pkg }) {
             <ChevronIcon open={open} />
           </button>
         )}
-        <a
+        <motion.a
           href="#kontak"
           className={`inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition ${
             pkg.featured
@@ -292,9 +294,9 @@ function PackageCard({ pkg }: { pkg: Pkg }) {
         >
           Pilih Paket Ini
           <ArrowIcon />
-        </a>
+        </motion.a>
       </div>
-    </article>
+    </motion.article>
   );
 }
 
@@ -302,22 +304,32 @@ export default function PricingSection() {
   return (
     <section id="harga" className="bg-wm-surface">
       <div className="mx-auto max-w-[1200px] px-6 py-20 md:px-8 md:py-28">
-        <div className="mx-auto max-w-2xl text-center">
+        <motion.div
+          className="mx-auto max-w-2xl text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+        >
           <p className="text-sm font-semibold uppercase tracking-[0.08em] text-wm-primary">
             Pilih paket sesuai kebutuhan
           </p>
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-wm-ink md:text-4xl">
             Mulai dari yang kamu butuhkan.
           </h2>
-        </div>
+        </motion.div>
         <div className="mt-12 grid items-start gap-5 md:grid-cols-3">
           {packages.map((pkg, i) => (
-            <div
+            <motion.div
               key={pkg.title}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.55, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] as const }}
               className={i === 3 ? "md:col-start-2" : undefined}
             >
               <PackageCard pkg={pkg} />
-            </div>
+            </motion.div>
           ))}
         </div>
         <p className="mt-8 text-center text-xs text-wm-ink/50">
