@@ -39,7 +39,7 @@ export default function Footer() {
             Website untuk bisnis yang mau mulai tumbuh.
           </p>
           <a
-            href="https://wa.me/6281234567890"
+            href="https://wa.me/6285196399108"
             className="inline-flex text-sm font-semibold text-wm-primary hover:text-wm-ink"
           >
             Konsultasi gratis →

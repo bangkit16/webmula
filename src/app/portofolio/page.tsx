@@ -63,8 +63,8 @@ const filters = [
   "All",
   "Landing Page",
   "Company Profile",
-  "Custom Website",
   "Portfolio",
+  "Custom Website",
 ];
 
 export default function PortofolioPage() {
@@ -80,10 +80,10 @@ export default function PortofolioPage() {
       <Navbar />
       <main className="bg-white">
         {/* Hero header */}
-        <section className="relative  bg-white">
-          <div className="hero-blob left-[-10%] top-[-20%] h-[420px] w-[420px] bg-wm-primary/30" />
-          <div className="hero-blob right-[-10%] top-[10%] h-[360px] w-[360px] bg-wm-sky/30" />
-          <div className="hero-blob bottom-[-20%] left-1/3 h-[360px] w-[360px] bg-wm-mint/30" />
+        <section className="relative overflow-hidden overflow-y-clip bg-white">
+          <div className="hero-blob left-[-10%] top-[-20%] h-105 w-105 bg-wm-primary/30" />
+          <div className="hero-blob right-[-10%] top-[10%] h-90 w-90 bg-wm-sky/30" />
+          <div className="hero-blob top-[-40%] left-1/3 h-90 w-90 bg-wm-mint/30" />
 
           <div className="relative mx-auto max-w-3xl px-6 py-20 text-center md:px-8 md:py-28">
             <p className="text-sm font-semibold uppercase tracking-wider text-wm-primary">
@@ -103,7 +103,7 @@ export default function PortofolioPage() {
         </section>
 
         {/* Filter pills */}
-        <section className="mx-auto  max-w-[1200px] px-6 md:px-8">
+        <section className="mx-auto max-w-300 px-6 md:px-8 pt-6">
           <div className="flex flex-wrap justify-center gap-3">
             {filters.map((filter) => (
               <button
@@ -124,19 +124,19 @@ export default function PortofolioPage() {
         </section>
 
         {/* Projects grid */}
-        <section className="mx-auto mt-12 grid max-w-[1200px] gap-6 px-6 pb-20 sm:grid-cols-2 sm:px-6 md:px-8 lg:grid-cols-3">
+        <section className="mx-auto mt-12 grid max-w-300 gap-6 px-6 pb-20 sm:grid-cols-2 sm:px-6 md:px-8 lg:grid-cols-3">
           {filteredProjects.map((project) => (
             <article
               key={project.name}
               className="group overflow-hidden rounded-2xl border border-wm-surface-2 bg-wm-surface transition hover:-translate-y-1 hover:bg-white hover:shadow-xl"
             >
-              <div className="aspect-[16/9] overflow-hidden bg-wm-surface-2">
+              <div className="aspect-video overflow-hidden bg-wm-surface-2">
                 <ProjectImage
                   url={project.url}
                   className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
-              <div className="p-5">
+              <div className="p-5 flex flex-col">
                 <p className="text-xs font-semibold uppercase tracking-wider text-wm-primary">
                   {project.type}
                 </p>
@@ -150,7 +150,7 @@ export default function PortofolioPage() {
                   href={project.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-wm-primary transition-colors hover:text-wm-sky"
+                  className=" inline-flex items-center gap-1 text-sm mt-auto font-semibold text-wm-primary transition-colors hover:text-wm-sky"
                 >
                   Lihat Detail
                   <svg
@@ -205,7 +205,7 @@ export default function PortofolioPage() {
             </a>
           </div>
         </section> */}
-        <ClosingCTA />
+        <ClosingCTA url="https://wa.me/6285196399108" />
       </main>
       <Footer />
     </>

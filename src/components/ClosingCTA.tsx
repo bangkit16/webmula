@@ -1,4 +1,4 @@
-export default function ClosingCTA() {
+export default function ClosingCTA({url}: {url?: string}) {
   return (
     <section className="relative overflow-hidden bg-wm-ink text-white">
       <div
@@ -22,7 +22,7 @@ export default function ClosingCTA() {
         </p>
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
-            href="#kontak"
+            href={url || "#kontak"}
             className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-brand px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-wm-primary/30 transition hover:opacity-95"
           >
             Konsultasi Gratis Sekarang
