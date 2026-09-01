@@ -12,26 +12,44 @@ const projects: Project[] = [
   {
     name: "Klinik Utama Nikita Farla",
     category: "Company Profile",
-    blurb: "Klinik spesialis keluarga di Tulungagung dengan pelayanan cepat, dokter peduli, dan rating 4.9 dari 265 ulasan Google.",
+    blurb:
+      "Klinik spesialis keluarga di Tulungagung dengan pelayanan cepat, dokter peduli, dan rating 4.9 dari 265 ulasan Google.",
     url: "https://nikita-farla.vercel.app",
   },
   {
     name: "Tesla Education Center",
     category: "Company Profile",
-    blurb: "Bimbingan belajar Tulungagung dengan pengajar asik, suasana nyaman, dan rating 5.0 dari 17 ulasan Google.",
+    blurb:
+      "Bimbingan belajar Tulungagung dengan pengajar asik, suasana nyaman, dan rating 5.0 dari 17 ulasan Google.",
     url: "https://tesla-education-center.vercel.app",
   },
+  // {
+  //   name: "Odekorasi",
+  //   category: "Company Profile",
+  //   blurb:
+  //     "Penyewaan dekorasi premium untuk pernikahan, ulang tahun, dan acara perusahaan dengan desain eksklusif.",
+  //   url: "https://www.okynawa.com",
+  // },
+  // {
+  //   name: "Video Belajar Bangkit",
+  //   category: "Landing Page",
+  //   blurb:
+  //     "Platform pembelajaran video interaktif untuk meningkatkan skill digital dan teknologi.",
+  //   url: "https://videobelajar.bangkit.site",
+  // },
   {
-    name: "Odekorasi",
-    category: "Company Profile",
-    blurb: "Penyewaan dekorasi premium untuk pernikahan, ulang tahun, dan acara perusahaan dengan desain eksklusif.",
-    url: "https://www.okynawa.com",
+    name: "Aluna Pilates Studio",
+    category: "Landing Page",
+    blurb:
+      "Rasakan pengalaman pilates terbaik di Tulungagung! Didukung pengajar yang asik, suasana studio yang nyaman, dan rating sempurna 5.0 dari 17 ulasan Google.",
+    url: "https://aluna-pilates-studio.vercel.app",
   },
   {
-    name: "Video Belajar Bangkit",
-    category: "Landing Page",
-    blurb: "Platform pembelajaran video interaktif untuk meningkatkan skill digital dan teknologi.",
-    url: "https://videobelajar.bangkit.site",
+    name: "Notaris Muchlis Samfrudin",
+    category: "Company Profile",
+    blurb:
+      "Jasa notaris di Tulungagung dengan layanan profesional dan pengalaman yang terbukti.",
+    url: "https://notaris-muchlis-samfrudin.vercel.app/",
   },
 ];
 
@@ -91,6 +109,16 @@ export default function Portfolio() {
               </div>
             </article>
           ))}
+        </div>
+        <div className="mx-auto mt-12 max-w-3xl text-center">
+          <p className="text-sm leading-relaxed text-wm-ink/70 md:text-base">
+            <Link
+              href="/portofolio"
+              className="mt-8 inline-flextext-center gap-1 text-xl mx-auto w-full font-semibold text-wm-primary hover:text-wm-sky"
+            >
+              Lihat Portofolio Lain <span aria-hidden>→</span>
+            </Link>
+          </p>
         </div>
       </div>
     </section>
