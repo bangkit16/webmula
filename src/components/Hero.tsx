@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 function FeatureIcon({ name }: { name: "smartphone" | "chat" | "search" }) {
   const common = {
@@ -39,6 +40,8 @@ function FeatureIcon({ name }: { name: "smartphone" | "chat" | "search" }) {
 }
 
 export default function Hero() {
+  const t = useTranslations("hero");
+
   const fadeUp: Variants = {
     hidden: { opacity: 0, y: 24 },
     show: (i: number = 0) => ({
@@ -51,6 +54,10 @@ export default function Hero() {
       },
     }),
   };
+
+  const title2 = t.rich("title2", {
+    highlight: (chunks) => <span className="text-wm-primary">{chunks}</span>,
+  });
 
   return (
     <section
@@ -88,7 +95,7 @@ export default function Hero() {
             animate="show"
             custom={0}
           >
-            Webmula untuk bisnis kecil
+            {t("eyebrow")}
           </motion.p>
           <motion.h1
             className="mt-5 text-5xl font-extrabold leading-[1.08] tracking-[-0.04em] text-wm-ink md:text-6xl"
@@ -97,9 +104,9 @@ export default function Hero() {
             animate="show"
             custom={1}
           >
-            Website simpel.
+            {t("title1")}
             <br />
-            Bisnis makin <span className="text-wm-primary">profesional.</span>
+            {title2}
           </motion.h1>
           <motion.p
             className="mt-6 max-w-lg text-lg leading-8 text-wm-ink/70 md:text-xl"
@@ -108,7 +115,7 @@ export default function Hero() {
             animate="show"
             custom={2}
           >
-            Website untuk bisnis yang mau mulai tumbuh.
+            {t("subtitle")}
           </motion.p>
           <motion.p
             className="mt-3 max-w-xl text-base leading-7 text-wm-ink/60"
@@ -117,8 +124,7 @@ export default function Hero() {
             animate="show"
             custom={3}
           >
-            Bantu bisnis kecil tampil lebih terpercaya dengan website yang
-            mobile-friendly dan terhubung ke WhatsApp.
+            {t("body")}
           </motion.p>
           <motion.div
             className="mt-8 flex flex-col gap-3 sm:flex-row"
@@ -132,13 +138,13 @@ export default function Hero() {
               className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-wm-primary px-6 text-sm font-semibold text-white shadow-sm transition hover:bg-wm-ink"
             >
               <FeatureIcon name="chat" />
-              Konsultasi Gratis
+              {t("ctaPrimary")}
             </motion.a>
             <motion.a
               href="#portfolio"
               className="inline-flex min-h-12 items-center justify-center rounded-xl border border-wm-surface-2 bg-white px-6 text-sm font-semibold text-wm-ink transition hover:border-wm-primary hover:text-wm-primary"
             >
-              Lihat Contoh Website
+              {t("ctaSecondary")}
             </motion.a>
           </motion.div>
           <motion.div
@@ -148,17 +154,21 @@ export default function Hero() {
             animate="show"
             custom={5}
           >
-            {(["smartphone", "chat", "search"] as const).map((icon, index) => (
+            {(["mobile", "whatsapp", "seo"] as const).map((badge) => (
               <motion.span
-                key={icon}
+                key={badge}
                 className="inline-flex items-center gap-2 rounded-full bg-wm-surface px-3 py-1.5 text-xs font-medium text-wm-ink/65"
               >
-                <FeatureIcon name={icon} />
-                {index === 0
-                  ? "Mobile Friendly"
-                  : index === 1
-                    ? "WhatsApp Ready"
-                    : "Basic SEO"}
+                <FeatureIcon
+                  name={
+                    badge === "mobile"
+                      ? "smartphone"
+                      : badge === "whatsapp"
+                        ? "chat"
+                        : "search"
+                  }
+                />
+                {t(`badges.${badge}`)}
               </motion.span>
             ))}
           </motion.div>

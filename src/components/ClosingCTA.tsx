@@ -1,8 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
-export default function ClosingCTA({url}: {url?: string}) {
+export default function ClosingCTA({ url }: { url?: string }) {
+  const t = useTranslations("closingCta");
+  const brand = (
+    <>
+      <span className="text-white">web</span>
+      <span className="text-wm-sky">mula</span>
+    </>
+  );
+
   return (
     <section className="relative overflow-hidden bg-wm-ink text-white">
       <motion.div
@@ -29,10 +38,7 @@ export default function ClosingCTA({url}: {url?: string}) {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
           className="text-3xl font-extrabold leading-tight md:text-4xl"
         >
-          {/* Two-tone wordmark di closing — web (putih/ink-on-dark) + mula (primary) */}
-          Siap mulai proyek website-mu bareng{" "}
-          <span className="text-white">web</span>
-          <span className="text-wm-sky">mula</span>?
+          {t.rich("title", { brand: () => brand })}
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 18 }}
@@ -41,8 +47,7 @@ export default function ClosingCTA({url}: {url?: string}) {
           transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] as const }}
           className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-white/75 md:text-base"
         >
-          Konsultasi 30 menit, gratis, lewat WhatsApp. Kami kasih rekomendasi
-          paket sebelum kamu commit apapun.
+          {t("body")}
         </motion.p>
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <motion.a
@@ -53,7 +58,7 @@ export default function ClosingCTA({url}: {url?: string}) {
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] as const }}
             className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-brand px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-wm-primary/30 transition hover:opacity-95"
           >
-            Konsultasi Gratis Sekarang
+            {t("button")}
             <svg
               width="18"
               height="18"

@@ -1,43 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-const steps = [
-  {
-    no: "1",
-    title: "Ceritakan Bisnis Kamu",
-    body: "Ceritakan kebutuhan bisnismu kepada kami.",
-    icon: "chat",
-  },
-  {
-    no: "2",
-    title: "Pilih Paket yang Sesuai",
-    body: "Pilih paket yang sesuai dengan kebutuhanmu.",
-    icon: "description",
-  },
-  {
-    no: "3",
-    title: "Kami Buat Websitenya",
-    body: "Tim kami mulai membangun website Anda.",
-    icon: "edit",
-  },
-  {
-    no: "4",
-    title: "Review & Revisi",
-    body: "Review hasil dan minta revisi jika diperlukan.",
-    icon: "visibility",
-  },
-  {
-    no: "5",
-    title: "Website Online",
-    body: "Siap Digunakan",
-    icon: "send",
-  },
-];
+import { useTranslations } from "next-intl";
 
 function StepIcon({ icon }: { icon: string }) {
   const iconClass = "w-6 h-6 text-wm-primary";
-  
+
   if (icon === "chat") {
     return (
       <svg className={iconClass} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -83,7 +51,12 @@ function StepIcon({ icon }: { icon: string }) {
   return null;
 }
 
+const STEP_ICONS = ["chat", "description", "edit", "visibility", "send"] as const;
+const STEP_KEYS = ["1", "2", "3", "4", "5"] as const;
+
 export default function Process() {
+  const t = useTranslations("process");
+
   return (
     <section id="proses" className="bg-wm-surface">
       <div className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-24">
@@ -95,15 +68,14 @@ export default function Process() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
         >
           <p className="text-sm font-semibold uppercase tracking-wider text-wm-primary">
-            Cara Kerja
+            {t("eyebrow")}
           </p>
           <h2 className="mt-3 text-3xl font-bold leading-tight text-wm-ink md:text-4xl">
-            Dari ngobrol pertama sampai website live, biasanya 2–4 minggu.
+            {t("title")}
           </h2>
         </motion.div>
 
         <ol className="relative mt-14 space-y-8 md:grid md:grid-cols-5 md:gap-5 md:items-stretch">
-          {/* Connecting line on desktop */}
           <motion.div
             aria-hidden
             initial={{ scaleX: 0 }}
@@ -114,9 +86,9 @@ export default function Process() {
             className="absolute left-0 right-0 top-7 hidden h-0.5 bg-gradient-brand md:block z-0"
           />
 
-          {steps.map((s, i) => (
+          {STEP_KEYS.map((key, i) => (
             <motion.li
-              key={s.no}
+              key={key}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
@@ -131,15 +103,15 @@ export default function Process() {
                 className="mb-3 inline-flex h-14 w-14 items-center justify-center rounded-full bg-gradient-brand p-0.5"
               >
                 <div className="h-full w-full flex items-center justify-center rounded-full bg-white">
-                  <StepIcon icon={s.icon} />
+                  <StepIcon icon={STEP_ICONS[i]} />
                 </div>
               </motion.div>
               <div className="rounded-2xl border border-wm-surface-2 bg-white p-5 text-left md:mt-2 md:w-full md:flex-1">
                 <h3 className="text-base font-semibold text-wm-ink">
-                  {s.title}
+                  {t(`steps.${key}.title`)}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-wm-ink/70">
-                  {s.body}
+                  {t(`steps.${key}.body`)}
                 </p>
               </div>
             </motion.li>

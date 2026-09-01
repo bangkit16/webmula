@@ -1,0 +1,369 @@
+{
+  "metadata": {
+    "title": "Webmula — Websites for businesses ready to grow",
+    "description": "Webmula builds professional websites for small businesses and SMEs. No coding needed, conversion-focused design, transparent pricing."
+  },
+  "nav": {
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "process": "How it works",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "cta": "Free Consultation",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "languageSwitch": "Switch language",
+    "homeAria": "Webmula home"
+  },
+  "hero": {
+    "eyebrow": "Webmula for small businesses",
+    "title1": "Simple websites.",
+    "title2": "A more {highlight} business.",
+    "subtitle": "Websites for businesses ready to grow.",
+    "body": "Help your small business look more trustworthy with a mobile-friendly website connected to WhatsApp.",
+    "ctaPrimary": "Free Consultation",
+    "ctaSecondary": "See Sample Sites",
+    "badges": {
+      "mobile": "Mobile Friendly",
+      "whatsapp": "WhatsApp Ready",
+      "seo": "Basic SEO"
+    }
+  },
+  "features": {
+    "eyebrow": "Everything you need, nothing extra",
+    "title": "A website that works for your business.",
+    "items": {
+      "mobile": {
+        "title": "Mobile Friendly",
+        "body": "Looks great on every device."
+      },
+      "whatsapp": {
+        "title": "WhatsApp Connected",
+        "body": "Customers can reach you instantly."
+      },
+      "design": {
+        "title": "Professional Design",
+        "body": "Modern look that builds trust."
+      },
+      "seo": {
+        "title": "Basic SEO",
+        "body": "Site structure ready to be found on Google."
+      }
+    }
+  },
+  "pricing": {
+    "eyebrow": "Pick the package that fits",
+    "title": "Start with what you need.",
+    "footnote": "Need something beyond these packages? Reach out for a custom consultation.",
+    "mostPopular": "MOST POPULAR",
+    "selectCta": "Choose This Package",
+    "showMore": "Show details",
+    "showLess": "Hide details",
+    "packages": {
+      "basic": {
+        "label": "BASIC",
+        "title": "Landing Page Website",
+        "description": "Great for promoting a product or small business.",
+        "price": "IDR 600,000",
+        "features": [
+          { "text": "1 page", "included": true },
+          { "text": "Free domain (first year)", "included": true },
+          { "text": "Free hosting (first year)", "included": true },
+          { "text": "Free SSL", "included": true },
+          { "text": "Mobile friendly", "included": true },
+          { "text": "Professional design", "included": true },
+          { "text": "WhatsApp button integration", "included": true },
+          { "text": "Contact form", "included": true },
+          { "text": "Basic SEO", "included": true },
+          { "text": "Admin panel", "included": false },
+          { "text": "Blog/articles", "included": false },
+          { "text": "Revisions (1 minor only)", "included": false }
+        ]
+      },
+      "standard": {
+        "label": "STANDARD",
+        "title": "Company Profile Website",
+        "description": "For SMEs that want to look more serious on a tight budget.",
+        "price": "IDR 1,500,000",
+        "featured": true,
+        "features": [
+          { "text": "1-2 pages (Home, About)", "included": true },
+          { "text": "Free domain (first year)", "included": true },
+          { "text": "Free hosting (first year)", "included": true },
+          { "text": "Free SSL", "included": true },
+          { "text": "Mobile friendly", "included": true },
+          { "text": "Professional design", "included": true },
+          { "text": "WhatsApp button integration", "included": true },
+          { "text": "Contact form", "included": true },
+          { "text": "Basic SEO", "included": true },
+          { "text": "Admin panel (edit text & basic images — not full CRUD)", "included": true },
+          { "text": "Blog/articles", "included": false },
+          { "text": "Contact form database", "included": false },
+          { "text": "More than 1 revision", "included": false }
+        ]
+      },
+      "premium": {
+        "label": "PREMIUM",
+        "title": "Custom Business Website",
+        "description": "For businesses that need more features and active content.",
+        "price": "IDR 2,500,000",
+        "features": [
+          { "text": "3-7 pages (Home, About, Gallery, Blog, Articles)", "included": true },
+          { "text": "Free domain (first year)", "included": true },
+          { "text": "Free hosting (first year)", "included": true },
+          { "text": "Free SSL", "included": true },
+          { "text": "Mobile friendly", "included": true },
+          { "text": "Custom design matching your brand", "included": true },
+          { "text": "WhatsApp button integration", "included": true },
+          { "text": "Contact form + database", "included": true },
+          { "text": "Basic SEO", "included": true },
+          { "text": "Full admin panel (full CRUD)", "included": true },
+          { "text": "Blog/article uploads", "included": true },
+          { "text": "Website usage support", "included": true },
+          { "text": "2 minor revisions", "included": true }
+        ]
+      },
+      "custom": {
+        "label": "CUSTOM",
+        "title": "Custom Website",
+        "description": "For businesses that need a unique system or features beyond standard templates.",
+        "price": "Quoted per project",
+        "features": [
+          { "text": "Pages & features to match your needs", "included": true },
+          { "text": "Domain & hosting (scheme adapted to project)", "included": true },
+          { "text": "Free SSL", "included": true },
+          { "text": "Mobile friendly", "included": true },
+          { "text": "100% custom design & UX to match brand", "included": true },
+          { "text": "API/third-party integration (payment, CRM, marketplace)", "included": true },
+          { "text": "Custom database & backend", "included": true },
+          { "text": "Admin panel/dashboard to fit your needs", "included": true },
+          { "text": "Consultation & scoping session before development", "included": true },
+          { "text": "Revisions per contract agreement", "included": true }
+        ]
+      }
+    }
+  },
+  "portfolio": {
+    "eyebrow": "Our Work",
+    "title": "A few sites we've helped launch.",
+    "viewDetail": "View Detail",
+    "viewMore": "See More Portfolio",
+    "items": {
+      "nikita": {
+        "name": "Klinik Utama Nikita Farla",
+        "type": "Company Profile",
+        "blurb": "A family specialist clinic in Tulungagung with fast service, caring doctors, and a 4.9 rating from 265 Google reviews."
+      },
+      "tesla": {
+        "name": "Tesla Education Center",
+        "type": "Company Profile",
+        "blurb": "A tutoring center in Tulungagung with engaging teachers, a comfortable atmosphere, and a 5.0 rating from 17 Google reviews."
+      },
+      "aluna": {
+        "name": "Aluna Pilates Studio",
+        "type": "Landing Page",
+        "blurb": "Experience the best pilates in Tulungagung! Friendly instructors, a cozy studio atmosphere, and a perfect 5.0 rating from 17 Google reviews."
+      },
+      "notaris": {
+        "name": "Notaris Muchlis Samfrudin",
+        "type": "Company Profile",
+        "blurb": "Notary services in Tulungagung with professional service and a proven track record."
+      }
+    }
+  },
+  "process": {
+    "eyebrow": "How it works",
+    "title": "From the first chat to launch, usually 2–4 weeks.",
+    "steps": {
+      "1": {
+        "title": "Tell us about your business",
+        "body": "Share your business needs with us."
+      },
+      "2": {
+        "title": "Pick the right package",
+        "body": "Choose a package that matches your needs."
+      },
+      "3": {
+        "title": "We build the site",
+        "body": "Our team starts building your website."
+      },
+      "4": {
+        "title": "Review & revise",
+        "body": "Review the result and request revisions if needed."
+      },
+      "5": {
+        "title": "Site is live",
+        "body": "Ready to use"
+      }
+    }
+  },
+  "whyUs": {
+    "eyebrow": "Why Webmula",
+    "title": "The right partner for small businesses.",
+    "items": {
+      "focus": {
+        "title": "Focused on small business",
+        "body": "We understand SMEs and local business needs."
+      },
+      "price": {
+        "title": "Fair pricing",
+        "body": "Packages built for needs, not wants."
+      },
+      "support": {
+        "title": "Support after launch",
+        "body": "We're here for updates and maintenance."
+      },
+      "trust": {
+        "title": "Safe & trustworthy",
+        "body": "Clear process, transparent communication."
+      }
+    }
+  },
+  "testimonials": {
+    "eyebrow": "Client Stories",
+    "title": "Those who've built with {brand}.",
+    "items": {
+      "1": {
+        "name": "Raka Pratama",
+        "business": "Owner - Kopi Senja",
+        "quote": "Our WEBMULA website made the business look more professional and made it easier for customers to find information."
+      },
+      "2": {
+        "name": "Dewi Lestari",
+        "business": "Owner - Glow Skincare",
+        "quote": "Our WEBMULA website made the business look more professional and made it easier for customers to find information."
+      },
+      "3": {
+        "name": "Ahmad Fauzi",
+        "business": "Owner - Fotokita",
+        "quote": "Our WEBMULA website made the business look more professional and made it easier for customers to find information."
+      }
+    }
+  },
+  "faq": {
+    "eyebrow": "Frequently asked questions",
+    "title": "Got more questions? Check here.",
+    "items": {
+      "duration": {
+        "q": "How long does it take to build a website?",
+        "a": "Landing Pages take about 5–7 working days. Business or Online Store sites run 2–3 weeks, depending on content complexity."
+      },
+      "tech": {
+        "q": "Do I need to understand technology?",
+        "a": "No. The Webmula team handles setup, design, development and contact integration until the site is ready to use."
+      },
+      "revision": {
+        "q": "Can I request revisions?",
+        "a": "Yes. Design revisions happen at the layout draft stage before the site goes live."
+      },
+      "whatsapp": {
+        "q": "Can it connect to WhatsApp?",
+        "a": "Yes. The chat button links directly to your business WhatsApp number with an auto opening message."
+      }
+    }
+  },
+  "closingCta": {
+    "title": "Ready to start your website project with {brand}?",
+    "body": "A free 30-minute consultation over WhatsApp. We'll recommend a package before you commit to anything.",
+    "button": "Get a Free Consultation Now"
+  },
+  "contact": {
+    "eyebrow": "Contact Us",
+    "title": "Tell us about your website needs.",
+    "body": "Free consultation, no commitment. We reply within 1 business day.",
+    "whatsappLabel": "WhatsApp",
+    "emailLabel": "Email",
+    "responseLabel": "Response Hours",
+    "responseTime": "Monday - Sunday, 09:00–18:00 WIB",
+    "form": {
+      "tabWhatsapp": "✆ WhatsApp",
+      "tabEmail": "✉ Email",
+      "name": "Name",
+      "namePlaceholder": "Your full name",
+      "contactWhatsapp": "WhatsApp Number",
+      "contactEmail": "Email Address",
+      "contactWhatsappPlaceholder": "08xxx",
+      "contactEmailPlaceholder": "you@email.com",
+      "message": "Short message about your project needs",
+      "messagePlaceholder": "Example: I run a clothing store and want a catalog site with WhatsApp checkout. Budget around 5 million.",
+      "submit": "Send Message",
+      "disclaimer": "Your data is safe — we won't sell or spam you.",
+      "success": "Thanks! Your message has been received. The Webmula team will reply within 1 business day."
+    }
+  },
+  "footer": {
+    "tagline": "Websites for businesses ready to grow.",
+    "consultation": "Free consultation →",
+    "servicesTitle": "Services",
+    "companyTitle": "Company",
+    "contactTitle": "Contact Us",
+    "services": {
+      "landing": "Landing Page",
+      "business": "Business Website",
+      "onlineStore": "Online Store",
+      "maintenance": "Maintenance"
+    },
+    "company": {
+      "portfolio": "Portfolio",
+      "about": "About Webmula",
+      "faq": "FAQ",
+      "contact": "Contact"
+    },
+    "copyright": "© {year} Webmula. All rights reserved."
+  },
+  "portofolio": {
+    "eyebrow": "Showcase",
+    "title1": "Our ",
+    "title2": "Portfolio",
+    "body": "See how we help businesses grow with precise, results-driven web design.",
+    "liveDemo": "View Live Demo",
+    "filters": {
+      "all": "All",
+      "landing": "Landing Page",
+      "company": "Company Profile",
+      "portfolio": "Portfolio",
+      "custom": "Custom Website"
+    },
+    "items": {
+      "nikita": {
+        "name": "Klinik Utama Nikita Farla",
+        "type": "Company Profile",
+        "description": "A family specialist clinic in Tulungagung with fast service, caring doctors, and a 4.9 rating from 265 Google reviews."
+      },
+      "tesla": {
+        "name": "Tesla Education Center",
+        "type": "Company Profile",
+        "description": "A tutoring center in Tulungagung with engaging teachers, a comfortable atmosphere, and a 5.0 rating from 17 Google reviews."
+      },
+      "aluna": {
+        "name": "Aluna Pilates Studio",
+        "type": "Landing Page",
+        "description": "Experience the best pilates in Tulungagung! Friendly instructors, a cozy studio atmosphere, and a perfect 5.0 rating from 17 Google reviews."
+      },
+      "notaris": {
+        "name": "Notaris Muchlis Samfrudin",
+        "type": "Company Profile",
+        "description": "Notary services in Tulungagung with professional service and a proven track record."
+      },
+      "odekorasi": {
+        "name": "Odekorasi",
+        "type": "Landing Page",
+        "description": "Premium decoration rental for weddings, birthdays and corporate events with exclusive design and quality materials."
+      },
+      "videobelajar": {
+        "name": "Video Belajar",
+        "type": "Custom Website",
+        "description": "An interactive video learning platform to grow digital and technology skills."
+      },
+      "design3d": {
+        "name": "3D Design Portfolio",
+        "type": "Portfolio",
+        "description": "A personal showcase portfolio with a modern, responsive design to display professional work."
+      }
+    }
+  },
+  "language": {
+    "id": "ID",
+    "en": "EN"
+  }
+}

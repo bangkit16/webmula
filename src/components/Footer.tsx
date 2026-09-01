@@ -1,24 +1,27 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 
-const serviceLinks = [
-  ["Landing Page", "/#harga"],
-  ["Business Website", "/#harga"],
-  ["Online Store", "/#harga"],
-  ["Maintenance", "/#kontak"],
-] as const;
-
-const companyLinks = [
-  ["Portfolio", "/portofolio"],
-  ["Tentang Webmula", "/"],
-  ["FAQ", "/#faq"],
-  ["Kontak", "/#kontak"],
-] as const;
-
 export default function Footer() {
+  const t = useTranslations("footer");
+
+  const serviceLinks = [
+    { key: "landing", href: "/#harga" },
+    { key: "business", href: "/#harga" },
+    { key: "onlineStore", href: "/#harga" },
+    { key: "maintenance", href: "/#kontak" },
+  ] as const;
+
+  const companyLinks = [
+    { key: "portfolio", href: "/portofolio" },
+    { key: "about", href: "/" },
+    { key: "faq", href: "/#faq" },
+    { key: "contact", href: "/#kontak" },
+  ] as const;
+
   return (
     <footer className=" w-full border-t border-wm-surface-2 bg-white text-left">
       <motion.div
@@ -41,7 +44,7 @@ export default function Footer() {
           <Link
             href="/"
             className="flex items-center gap-2.5"
-            aria-label="Webmula home"
+            aria-label={t("company.about")}
           >
             <Image
               src="/image/logo-webmula.png"
@@ -54,18 +57,24 @@ export default function Footer() {
             </span>
           </Link>
           <p className="max-w-[220px] text-sm leading-6 text-wm-ink/60">
-            Website untuk bisnis yang mau mulai tumbuh.
+            {t("tagline")}
           </p>
           <a
             href="https://wa.me/6285196399108"
             className="inline-flex text-sm font-semibold text-wm-primary hover:text-wm-ink"
           >
-            Konsultasi gratis →
+            {t("consultation")}
           </a>
         </motion.div>
 
-        <FooterLinks title="Layanan" links={serviceLinks} />
-        <FooterLinks title="Company" links={companyLinks} />
+        <FooterLinks
+          title={t("servicesTitle")}
+          links={serviceLinks.map((l) => ({ label: t(`services.${l.key}`), href: l.href }))}
+        />
+        <FooterLinks
+          title={t("companyTitle")}
+          links={companyLinks.map((l) => ({ label: t(`company.${l.key}`), href: l.href }))}
+        />
 
         <motion.div
           variants={{
@@ -73,7 +82,7 @@ export default function Footer() {
             show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
           }}
         >
-          <h2 className="text-sm font-bold text-wm-ink">Hubungi Kami</h2>
+          <h2 className="text-sm font-bold text-wm-ink">{t("contactTitle")}</h2>
           <ul className="mt-5 space-y-3 text-sm text-wm-ink/60">
             <li>
               <a
@@ -118,7 +127,7 @@ export default function Footer() {
       </motion.div>
       <div className="border-t border-wm-surface-2">
         <p className="mx-auto max-w-[1200px] px-6 py-5 text-xs text-wm-ink/50 md:px-8">
-          © {new Date().getFullYear()} Webmula. Semua hak dilindungi.
+          {t("copyright", { year: new Date().getFullYear() })}
         </p>
       </div>
     </footer>
@@ -130,7 +139,7 @@ function FooterLinks({
   links,
 }: {
   title: string;
-  links: readonly (readonly [string, string])[];
+  links: { label: string; href: string }[];
 }) {
   return (
     <motion.div
@@ -141,10 +150,10 @@ function FooterLinks({
     >
       <h2 className="text-sm font-bold text-wm-ink">{title}</h2>
       <ul className="mt-5 space-y-3 text-sm text-wm-ink/60">
-        {links.map(([label, href]) => (
-          <li key={href + label}>
-            <a href={href} className="hover:text-wm-primary">
-              {label}
+        {links.map((l) => (
+          <li key={l.href + l.label}>
+            <a href={l.href} className="hover:text-wm-primary">
+              {l.label}
             </a>
           </li>
         ))}

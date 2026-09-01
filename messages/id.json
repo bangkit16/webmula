@@ -1,0 +1,369 @@
+{
+  "metadata": {
+    "title": "Webmula — Website untuk bisnis yang mau mulai tumbuh",
+    "description": "Webmula bikin website profesional buat UMKM dan bisnis kecil. Tanpa perlu paham coding, desain yang dirancang untuk konversi, harga transparan."
+  },
+  "nav": {
+    "services": "Layanan",
+    "portfolio": "Portfolio",
+    "process": "Cara Kerja",
+    "pricing": "Harga",
+    "faq": "FAQ",
+    "cta": "Konsultasi Gratis",
+    "openMenu": "Buka menu",
+    "closeMenu": "Tutup menu",
+    "languageSwitch": "Ganti bahasa",
+    "homeAria": "Webmula home"
+  },
+  "hero": {
+    "eyebrow": "Webmula untuk bisnis kecil",
+    "title1": "Website simpel.",
+    "title2": "Bisnis makin {highlight}.",
+    "subtitle": "Website untuk bisnis yang mau mulai tumbuh.",
+    "body": "Bantu bisnis kecil tampil lebih terpercaya dengan website yang mobile-friendly dan terhubung ke WhatsApp.",
+    "ctaPrimary": "Konsultasi Gratis",
+    "ctaSecondary": "Lihat Contoh Website",
+    "badges": {
+      "mobile": "Mobile Friendly",
+      "whatsapp": "WhatsApp Ready",
+      "seo": "Basic SEO"
+    }
+  },
+  "features": {
+    "eyebrow": "Semua yang kamu butuhkan, tanpa ribet",
+    "title": "Website yang bekerja untuk bisnismu.",
+    "items": {
+      "mobile": {
+        "title": "Mobile Friendly",
+        "body": "Nyaman dibuka di semua perangkat."
+      },
+      "whatsapp": {
+        "title": "Terhubung ke WhatsApp",
+        "body": "Calon pelanggan bisa langsung menghubungi kamu."
+      },
+      "design": {
+        "title": "Desain Profesional",
+        "body": "Tampilan modern untuk bangun kepercayaan."
+      },
+      "seo": {
+        "title": "Basic SEO",
+        "body": "Struktur website disiapkan agar mudah ditemukan di Google."
+      }
+    }
+  },
+  "pricing": {
+    "eyebrow": "Pilih paket sesuai kebutuhan",
+    "title": "Mulai dari yang kamu butuhkan.",
+    "footnote": "Butuh sistem di luar paket di atas? Hubungi kami untuk konsultasi Custom.",
+    "mostPopular": "PALING POPULER",
+    "selectCta": "Pilih Paket Ini",
+    "showMore": "Lihat detail",
+    "showLess": "Sembunyikan detail",
+    "packages": {
+      "basic": {
+        "label": "BASIC",
+        "title": "Landing Page Website",
+        "description": "Cocok untuk promosi produk atau bisnis kecil.",
+        "price": "Rp 600.000",
+        "features": [
+          { "text": "1 Halaman", "included": true },
+          { "text": "Domain gratis (tahun pertama)", "included": true },
+          { "text": "Hosting gratis (tahun pertama)", "included": true },
+          { "text": "Free SSL", "included": true },
+          { "text": "Mobile friendly", "included": true },
+          { "text": "Desain profesional", "included": true },
+          { "text": "Integrasi tombol WhatsApp", "included": true },
+          { "text": "Formulir kontak", "included": true },
+          { "text": "Basic SEO", "included": true },
+          { "text": "Admin panel", "included": false },
+          { "text": "Blog/artikel", "included": false },
+          { "text": "Revisi (1x minor revision only)", "included": false }
+        ]
+      },
+      "standard": {
+        "label": "STANDARD",
+        "title": "Company Profile Website",
+        "description": "Cocok untuk bisnis atau UMKM yang mau tampil lebih serius dengan budget terbatas.",
+        "price": "Rp 1.500.000",
+        "featured": true,
+        "features": [
+          { "text": "1-2 Halaman (Home, About)", "included": true },
+          { "text": "Domain gratis (tahun pertama)", "included": true },
+          { "text": "Hosting gratis (tahun pertama)", "included": true },
+          { "text": "Free SSL", "included": true },
+          { "text": "Mobile friendly", "included": true },
+          { "text": "Desain profesional", "included": true },
+          { "text": "Integrasi tombol WhatsApp", "included": true },
+          { "text": "Formulir kontak", "included": true },
+          { "text": "Basic SEO", "included": true },
+          { "text": "Admin panel (edit teks & gambar dasar — bukan CRUD penuh)", "included": true },
+          { "text": "Blog/artikel", "included": false },
+          { "text": "Formulir kontak database", "included": false },
+          { "text": "Revisi lebih dari 1x", "included": false }
+        ]
+      },
+      "premium": {
+        "label": "PREMIUM",
+        "title": "Website Custom Bisnis",
+        "description": "Cocok untuk bisnis yang butuh fitur lebih dan konten aktif.",
+        "price": "Rp 2.500.000",
+        "features": [
+          { "text": "3-7 Halaman (Home, About, Gallery, Blog, Artikel)", "included": true },
+          { "text": "Domain gratis (tahun pertama)", "included": true },
+          { "text": "Hosting gratis (tahun pertama)", "included": true },
+          { "text": "Free SSL", "included": true },
+          { "text": "Mobile friendly", "included": true },
+          { "text": "Desain custom sesuai brand", "included": true },
+          { "text": "Integrasi tombol WhatsApp", "included": true },
+          { "text": "Formulir kontak + database", "included": true },
+          { "text": "Basic SEO", "included": true },
+          { "text": "Admin panel lengkap (CRUD penuh)", "included": true },
+          { "text": "Upload blog/artikel", "included": true },
+          { "text": "Bantuan penggunaan website", "included": true },
+          { "text": "2x revisi minor", "included": true }
+        ]
+      },
+      "custom": {
+        "label": "CUSTOM",
+        "title": "Custom Website",
+        "description": "Untuk bisnis yang butuh sistem atau fitur unik di luar template standar.",
+        "price": "Harga menyesuaikan",
+        "features": [
+          { "text": "Jumlah halaman & fitur sesuai kebutuhan", "included": true },
+          { "text": "Domain & hosting (skema disesuaikan project)", "included": true },
+          { "text": "Free SSL", "included": true },
+          { "text": "Mobile friendly", "included": true },
+          { "text": "Desain & UX 100% custom sesuai brand", "included": true },
+          { "text": "Integrasi API/third-party (payment, CRM, marketplace)", "included": true },
+          { "text": "Database & backend custom", "included": true },
+          { "text": "Admin panel/dashboard sesuai kebutuhan", "included": true },
+          { "text": "Sesi konsultasi & scoping sebelum development", "included": true },
+          { "text": "Revisi sesuai kesepakatan kontrak", "included": true }
+        ]
+      }
+    }
+  },
+  "portfolio": {
+    "eyebrow": "Hasil Kerja",
+    "title": "Beberapa website yang sudah kami bantu launching.",
+    "viewDetail": "Lihat Detail",
+    "viewMore": "Lihat Portofolio Lain",
+    "items": {
+      "nikita": {
+        "name": "Klinik Utama Nikita Farla",
+        "type": "Company Profile",
+        "blurb": "Klinik spesialis keluarga di Tulungagung dengan pelayanan cepat, dokter peduli, dan rating 4.9 dari 265 ulasan Google."
+      },
+      "tesla": {
+        "name": "Tesla Education Center",
+        "type": "Company Profile",
+        "blurb": "Bimbingan belajar Tulungagung dengan pengajar asik, suasana nyaman, dan rating 5.0 dari 17 ulasan Google."
+      },
+      "aluna": {
+        "name": "Aluna Pilates Studio",
+        "type": "Landing Page",
+        "blurb": "Rasakan pengalaman pilates terbaik di Tulungagung! Didukung pengajar yang asik, suasana studio yang nyaman, dan rating sempurna 5.0 dari 17 ulasan Google."
+      },
+      "notaris": {
+        "name": "Notaris Muchlis Samfrudin",
+        "type": "Company Profile",
+        "blurb": "Jasa notaris di Tulungagung dengan layanan profesional dan pengalaman yang terbukti."
+      }
+    }
+  },
+  "process": {
+    "eyebrow": "Cara Kerja",
+    "title": "Dari ngobrol pertama sampai website live, biasanya 2–4 minggu.",
+    "steps": {
+      "1": {
+        "title": "Ceritakan Bisnis Kamu",
+        "body": "Ceritakan kebutuhan bisnismu kepada kami."
+      },
+      "2": {
+        "title": "Pilih Paket yang Sesuai",
+        "body": "Pilih paket yang sesuai dengan kebutuhanmu."
+      },
+      "3": {
+        "title": "Kami Buat Websitenya",
+        "body": "Tim kami mulai membangun website Anda."
+      },
+      "4": {
+        "title": "Review & Revisi",
+        "body": "Review hasil dan minta revisi jika diperlukan."
+      },
+      "5": {
+        "title": "Website Online",
+        "body": "Siap Digunakan"
+      }
+    }
+  },
+  "whyUs": {
+    "eyebrow": "Kenapa Webmula",
+    "title": "Partner yang tepat untuk bisnis kecil.",
+    "items": {
+      "focus": {
+        "title": "Fokus untuk Bisnis Kecil",
+        "body": "Kami paham kebutuhan UMKM dan bisnis lokal."
+      },
+      "price": {
+        "title": "Harga Masuk Akal",
+        "body": "Paket dibuat untuk kebutuhan, bukan keinginan."
+      },
+      "support": {
+        "title": "Dukungan Setelah Launch",
+        "body": "Kami siap bantu update dan maintenance."
+      },
+      "trust": {
+        "title": "Aman & Terpercaya",
+        "body": "Proses jelas, komunikasi transparan."
+      }
+    }
+  },
+  "testimonials": {
+    "eyebrow": "Testimoni Klien",
+    "title": "Mereka yang sudah jalan bareng {brand}.",
+    "items": {
+      "1": {
+        "name": "Raka Pratama",
+        "business": "Owner - Kopi Senja",
+        "quote": "Website dari WEBMULA bikin bisnis kami terlihat lebih profesional dan pelanggan jadi lebih mudah menemukan informasi."
+      },
+      "2": {
+        "name": "Dewi Lestari",
+        "business": "Owner - Glow Skincare",
+        "quote": "Website dari WEBMULA bikin bisnis kami terlihat lebih profesional dan pelanggan jadi lebih mudah menemukan informasi."
+      },
+      "3": {
+        "name": "Ahmad Fauzi",
+        "business": "Owner - Fotokita",
+        "quote": "Website dari WEBMULA bikin bisnis kami terlihat lebih profesional dan pelanggan jadi lebih mudah menemukan informasi."
+      }
+    }
+  },
+  "faq": {
+    "eyebrow": "Pertanyaan yang sering ditanyakan",
+    "title": "Punya pertanyaan lain? Cek di sini.",
+    "items": {
+      "duration": {
+        "q": "Berapa lama pengerjaan website?",
+        "a": "Landing Page sekitar 5–7 hari kerja. Website Bisnis atau Toko Online berkisar 2–3 minggu, tergantung kompleksitas konten."
+      },
+      "tech": {
+        "q": "Apakah saya harus paham teknologi?",
+        "a": "Tidak perlu. Tim Webmula menangani setup, desain, pengembangan, dan integrasi kontak sampai website siap digunakan."
+      },
+      "revision": {
+        "q": "Apakah bisa revisi?",
+        "a": "Bisa. Revisi desain dilakukan pada tahap draf layout sebelum website resmi online."
+      },
+      "whatsapp": {
+        "q": "Apakah bisa terhubung ke WhatsApp?",
+        "a": "Bisa. Tombol chat langsung terhubung ke nomor WhatsApp bisnis dengan pesan pembuka otomatis."
+      }
+    }
+  },
+  "closingCta": {
+    "title": "Siap mulai proyek website-mu bareng {brand}?",
+    "body": "Konsultasi 30 menit, gratis, lewat WhatsApp. Kami kasih rekomendasi paket sebelum kamu commit apapun.",
+    "button": "Konsultasi Gratis Sekarang"
+  },
+  "contact": {
+    "eyebrow": "Hubungi Kami",
+    "title": "Ceritain kebutuhan website-mu.",
+    "body": "Konsultasi gratis, tanpa komitmen. Kami balas dalam 1×24 jam hari kerja.",
+    "whatsappLabel": "WhatsApp",
+    "emailLabel": "Email",
+    "responseLabel": "Jam Respon",
+    "responseTime": "Senin - Minggu, 09.00–18.00 WIB",
+    "form": {
+      "tabWhatsapp": "✆ WhatsApp",
+      "tabEmail": "✉ Email",
+      "name": "Nama",
+      "namePlaceholder": "Nama lengkap kamu",
+      "contactWhatsapp": "Nomor WhatsApp",
+      "contactEmail": "Alamat Email",
+      "contactWhatsappPlaceholder": "08xxx",
+      "contactEmailPlaceholder": "kamu@email.com",
+      "message": "Pesan Singkat tentang Kebutuhan Project",
+      "messagePlaceholder": "Contoh: Saya punya toko baju, mau buat website katalog + checkout WhatsApp. Budget sekitar 5 juta.",
+      "submit": "Kirim Pesan",
+      "disclaimer": "Data kamu aman — nggak kami jual atau spam.",
+      "success": "Terima kasih! Pesan kamu sudah kami terima. Tim Webmula akan balas dalam 1×24 jam."
+    }
+  },
+  "footer": {
+    "tagline": "Website untuk bisnis yang mau mulai tumbuh.",
+    "consultation": "Konsultasi gratis →",
+    "servicesTitle": "Layanan",
+    "companyTitle": "Company",
+    "contactTitle": "Hubungi Kami",
+    "services": {
+      "landing": "Landing Page",
+      "business": "Business Website",
+      "onlineStore": "Online Store",
+      "maintenance": "Maintenance"
+    },
+    "company": {
+      "portfolio": "Portfolio",
+      "about": "Tentang Webmula",
+      "faq": "FAQ",
+      "contact": "Kontak"
+    },
+    "copyright": "© {year} Webmula. Semua hak dilindungi."
+  },
+  "portofolio": {
+    "eyebrow": "Showcase",
+    "title1": "Portofolio ",
+    "title2": "Kami",
+    "body": "Melihat bagaimana kami membantu bisnis tumbuh melalui desain web yang presisi dan berorientasi pada hasil.",
+    "liveDemo": "Lihat Live Demo",
+    "filters": {
+      "all": "All",
+      "landing": "Landing Page",
+      "company": "Company Profile",
+      "portfolio": "Portfolio",
+      "custom": "Custom Website"
+    },
+    "items": {
+      "nikita": {
+        "name": "Klinik Utama Nikita Farla",
+        "type": "Company Profile",
+        "description": "Klinik spesialis keluarga di Tulungagung dengan pelayanan cepat, dokter peduli, dan rating 4.9 dari 265 ulasan Google."
+      },
+      "tesla": {
+        "name": "Tesla Education Center",
+        "type": "Company Profile",
+        "description": "Bimbingan belajar Tulungagung dengan pengajar asik, suasana nyaman, dan rating 5.0 dari 17 ulasan Google."
+      },
+      "aluna": {
+        "name": "Aluna Pilates Studio",
+        "type": "Landing Page",
+        "description": "Rasakan pengalaman pilates terbaik di Tulungagung! Didukung pengajar yang asik, suasana studio yang nyaman, dan rating sempurna 5.0 dari 17 ulasan Google."
+      },
+      "notaris": {
+        "name": "Notaris Muchlis Samfrudin",
+        "type": "Company Profile",
+        "description": "Jasa notaris di Tulungagung dengan layanan profesional dan pengalaman yang terbukti."
+      },
+      "odekorasi": {
+        "name": "Odekorasi",
+        "type": "Landing Page",
+        "description": "Penyewaan dekorasi premium untuk pernikahan, ulang tahun, dan acara perusahaan dengan desain eksklusif dan material berkualitas."
+      },
+      "videobelajar": {
+        "name": "Video Belajar",
+        "type": "Custom Website",
+        "description": "Platform pembelajaran video interaktif untuk meningkatkan skill digital dan teknologi."
+      },
+      "design3d": {
+        "name": "3D Design Portfolio",
+        "type": "Portfolio",
+        "description": "Portfolio personal showcase dengan desain modern dan responsif untuk menampilkan karya profesional."
+      }
+    }
+  },
+  "language": {
+    "id": "ID",
+    "en": "EN"
+  }
+}

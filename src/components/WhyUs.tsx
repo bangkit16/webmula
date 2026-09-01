@@ -1,33 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-const benefits = [
-  {
-    icon: "favorite",
-    title: "Fokus untuk Bisnis Kecil",
-    body: "Kami paham kebutuhan UMKM dan bisnis lokal.",
-  },
-  {
-    icon: "sell",
-    title: "Harga Masuk Akal",
-    body: "Paket dibuat untuk kebutuhan, bukan keinginan.",
-  },
-  {
-    icon: "headset_mic",
-    title: "Dukungan Setelah Launch",
-    body: "Kami siap bantu update dan maintenance.",
-  },
-  {
-    icon: "verified_user",
-    title: "Aman & Terpercaya",
-    body: "Proses jelas, komunikasi transparan.",
-  },
-];
+import { useTranslations } from "next-intl";
 
 function BenefitIcon({ icon }: { icon: string }) {
   const iconClass = "w-6 h-6 text-wm-primary";
-  
+
   if (icon === "favorite") {
     return (
       <svg className={iconClass} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -64,7 +42,12 @@ function BenefitIcon({ icon }: { icon: string }) {
   return null;
 }
 
+const BENEFIT_ICONS = ["favorite", "sell", "headset_mic", "verified_user"] as const;
+const BENEFIT_KEYS = ["focus", "price", "support", "trust"] as const;
+
 export default function WhyUs() {
+  const t = useTranslations("whyUs");
+
   return (
     <section className="bg-white">
       <div className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-24">
@@ -76,17 +59,17 @@ export default function WhyUs() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
         >
           <p className="text-sm font-semibold uppercase tracking-wider text-wm-primary">
-            Kenapa Webmula
+            {t("eyebrow")}
           </p>
           <h2 className="mt-3 text-3xl font-bold leading-tight text-wm-ink md:text-4xl">
-            Partner yang tepat untuk bisnis kecil.
+            {t("title")}
           </h2>
         </motion.div>
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {benefits.map((b, i) => (
+          {BENEFIT_KEYS.map((key, i) => (
             <motion.article
-              key={b.title}
+              key={key}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
@@ -94,13 +77,13 @@ export default function WhyUs() {
               className="rounded-2xl border border-wm-surface-2 bg-wm-surface/40 p-6 transition hover:-translate-y-1 hover:border-wm-primary/30 hover:bg-white hover:shadow-[0_10px_15px_-3px_rgba(0,0,0,0.05)]"
             >
               <div className="grid h-12 w-12 place-items-center rounded-xl bg-wm-primary/10">
-                <BenefitIcon icon={b.icon} />
+                <BenefitIcon icon={BENEFIT_ICONS[i]} />
               </div>
               <h3 className="mt-5 text-base font-bold text-wm-ink">
-                {b.title}
+                {t(`items.${key}.title`)}
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-wm-ink/70">
-                {b.body}
+                {t(`items.${key}.body`)}
               </p>
             </motion.article>
           ))}
