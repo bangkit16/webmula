@@ -81,8 +81,8 @@ export default function PortofolioPage() {
       <main className="bg-white">
         {/* Hero header */}
         <section className="relative overflow-hidden overflow-y-clip bg-white">
-          <div className="hero-blob left-[-10%] top-[-20%] h-105 w-105 bg-wm-primary/30" />
-          <div className="hero-blob right-[-10%] top-[10%] h-90 w-90 bg-wm-sky/30" />
+          <div className="hero-blob left-[-80%] md:left-[-10%] top-[-20%] h-105 w-105 bg-wm-primary/30" />
+          <div className="hero-blob right-[-90%] md:right-[-10%] top-[10%] h-90 w-90 bg-wm-sky/30" />
           <div className="hero-blob top-[-40%] left-1/3 h-90 w-90 bg-wm-mint/30" />
 
           <div className="relative mx-auto max-w-3xl px-6 py-20 text-center md:px-8 md:py-28">
@@ -136,7 +136,7 @@ export default function PortofolioPage() {
                   className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
-              <div className="p-5 flex flex-col">
+              <div className="p-5 flex flex-col ">
                 <p className="text-xs font-semibold uppercase tracking-wider text-wm-primary">
                   {project.type}
                 </p>
@@ -150,9 +150,9 @@ export default function PortofolioPage() {
                   href={project.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className=" inline-flex items-center gap-1 text-sm mt-auto font-semibold text-wm-primary transition-colors hover:text-wm-sky"
+                  className=" inline-flex items-center gap-1 text-sm mt- font-semibold text-wm-primary transition-colors hover:text-wm-sky"
                 >
-                  Lihat Detail
+                  Lihat Live Demo
                   <svg
                     width="14"
                     height="14"

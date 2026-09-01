@@ -1,2 +1,7 @@
 allowBuilds:
   unrs-resolver: set this to true or false
+minimumReleaseAgeExclude:
+  - '@microlink/function@0.3.3'
+  - '@microlink/google@1.2.2'
+  - '@microlink/mql@0.19.0'
+  - microlink.io@0.6.0

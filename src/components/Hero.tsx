@@ -59,21 +59,21 @@ export default function Hero() {
     >
       <motion.div
         aria-hidden
-        className="hero-blob left-[-120px] top-[-100px] h-80 w-80 bg-wm-primary"
+        className="hero-blob left-[-300px] md:left-[-160px] top-[-100px] h-80 w-80 bg-wm-primary/70"
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 0.5 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
       />
       <motion.div
         aria-hidden
-        className="hero-blob right-[-100px] top-12 h-96 w-96 bg-wm-sky"
+        className="hero-blob right-[-350px] md:right-[-160px] top-12 h-96 w-96 bg-wm-sky/70"
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 0.5 }}
         transition={{ duration: 1.2, delay: 0.15, ease: "easeOut" }}
       />
       <motion.div
         aria-hidden
-        className="hero-blob bottom-[-140px] left-1/3 h-80 w-80 bg-wm-mint"
+        className="hero-blob bottom-[-140px] left-1/3 h-80 w-80 bg-wm-mint/70"
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 0.5 }}
         transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
