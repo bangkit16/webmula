@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 const benefits = [
   {
     icon: "favorite",
@@ -64,19 +68,29 @@ export default function WhyUs() {
   return (
     <section className="bg-white">
       <div className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-24">
-        <div className="mx-auto max-w-3xl text-center">
+        <motion.div
+          className="mx-auto max-w-3xl text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+        >
           <p className="text-sm font-semibold uppercase tracking-wider text-wm-primary">
             Kenapa Webmula
           </p>
           <h2 className="mt-3 text-3xl font-bold leading-tight text-wm-ink md:text-4xl">
             Partner yang tepat untuk bisnis kecil.
           </h2>
-        </div>
+        </motion.div>
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {benefits.map((b) => (
-            <article
+          {benefits.map((b, i) => (
+            <motion.article
               key={b.title}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] as const }}
               className="rounded-2xl border border-wm-surface-2 bg-wm-surface/40 p-6 transition hover:-translate-y-1 hover:border-wm-primary/30 hover:bg-white hover:shadow-[0_10px_15px_-3px_rgba(0,0,0,0.05)]"
             >
               <div className="grid h-12 w-12 place-items-center rounded-xl bg-wm-primary/10">
@@ -88,7 +102,7 @@ export default function WhyUs() {
               <p className="mt-2 text-sm leading-relaxed text-wm-ink/70">
                 {b.body}
               </p>
-            </article>
+            </motion.article>
           ))}
         </div>
       </div>

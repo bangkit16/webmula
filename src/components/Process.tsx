@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 const steps = [
   {
     no: "1",
@@ -83,32 +87,53 @@ export default function Process() {
   return (
     <section id="proses" className="bg-wm-surface">
       <div className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-24">
-        <div className="mx-auto max-w-3xl text-center">
+        <motion.div
+          className="mx-auto max-w-3xl text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+        >
           <p className="text-sm font-semibold uppercase tracking-wider text-wm-primary">
             Cara Kerja
           </p>
           <h2 className="mt-3 text-3xl font-bold leading-tight text-wm-ink md:text-4xl">
             Dari ngobrol pertama sampai website live, biasanya 2–4 minggu.
           </h2>
-        </div>
+        </motion.div>
 
         <ol className="relative mt-14 space-y-8 md:grid md:grid-cols-5 md:gap-5 md:items-stretch">
           {/* Connecting line on desktop */}
-          <div
+          <motion.div
             aria-hidden
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] as const }}
+            style={{ transformOrigin: "left center" }}
             className="absolute left-0 right-0 top-7 hidden h-0.5 bg-gradient-brand md:block z-0"
           />
 
-          {steps.map((s) => (
-            <li
+          {steps.map((s, i) => (
+            <motion.li
               key={s.no}
-              className="relative md:flex md:flex-col md:items-center md:text-center md:h-full z-10"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, delay: 0.15 + i * 0.1, ease: [0.22, 1, 0.36, 1] as const }}
+              className="relative md:flex md:flex-col md:items-center md:text-center md:h-full z-10 transition hover:-translate-y-1"
             >
-              <div className="mb-3 inline-flex h-14 w-14 items-center justify-center rounded-full bg-gradient-brand p-0.5">
+              <motion.div
+                initial={{ scale: 0.6, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.5, delay: 0.1 + i * 0.1, type: "spring", stiffness: 220, damping: 18 }}
+                className="mb-3 inline-flex h-14 w-14 items-center justify-center rounded-full bg-gradient-brand p-0.5"
+              >
                 <div className="h-full w-full flex items-center justify-center rounded-full bg-white">
                   <StepIcon icon={s.icon} />
                 </div>
-              </div>
+              </motion.div>
               <div className="rounded-2xl border border-wm-surface-2 bg-white p-5 text-left md:mt-2 md:w-full md:flex-1">
                 <h3 className="text-base font-semibold text-wm-ink">
                   {s.title}
@@ -117,7 +142,7 @@ export default function Process() {
                   {s.body}
                 </p>
               </div>
-            </li>
+            </motion.li>
           ))}
         </ol>
       </div>

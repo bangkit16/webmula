@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 import ProjectImage from "./ProjectImage";
 
 type Project = {
@@ -12,26 +15,44 @@ const projects: Project[] = [
   {
     name: "Klinik Utama Nikita Farla",
     category: "Company Profile",
-    blurb: "Klinik spesialis keluarga di Tulungagung dengan pelayanan cepat, dokter peduli, dan rating 4.9 dari 265 ulasan Google.",
+    blurb:
+      "Klinik spesialis keluarga di Tulungagung dengan pelayanan cepat, dokter peduli, dan rating 4.9 dari 265 ulasan Google.",
     url: "https://nikita-farla.vercel.app",
   },
   {
     name: "Tesla Education Center",
     category: "Company Profile",
-    blurb: "Bimbingan belajar Tulungagung dengan pengajar asik, suasana nyaman, dan rating 5.0 dari 17 ulasan Google.",
+    blurb:
+      "Bimbingan belajar Tulungagung dengan pengajar asik, suasana nyaman, dan rating 5.0 dari 17 ulasan Google.",
     url: "https://tesla-education-center.vercel.app",
   },
+  // {
+  //   name: "Odekorasi",
+  //   category: "Company Profile",
+  //   blurb:
+  //     "Penyewaan dekorasi premium untuk pernikahan, ulang tahun, dan acara perusahaan dengan desain eksklusif.",
+  //   url: "https://www.okynawa.com",
+  // },
+  // {
+  //   name: "Video Belajar Bangkit",
+  //   category: "Landing Page",
+  //   blurb:
+  //     "Platform pembelajaran video interaktif untuk meningkatkan skill digital dan teknologi.",
+  //   url: "https://videobelajar.bangkit.site",
+  // },
   {
-    name: "Odekorasi",
-    category: "Company Profile",
-    blurb: "Penyewaan dekorasi premium untuk pernikahan, ulang tahun, dan acara perusahaan dengan desain eksklusif.",
-    url: "https://www.okynawa.com",
+    name: "Aluna Pilates Studio",
+    category: "Landing Page",
+    blurb:
+      "Rasakan pengalaman pilates terbaik di Tulungagung! Didukung pengajar yang asik, suasana studio yang nyaman, dan rating sempurna 5.0 dari 17 ulasan Google.",
+    url: "https://aluna-pilates-studio.vercel.app",
   },
   {
-    name: "Video Belajar Bangkit",
-    category: "Landing Page",
-    blurb: "Platform pembelajaran video interaktif untuk meningkatkan skill digital dan teknologi.",
-    url: "https://videobelajar.bangkit.site",
+    name: "Notaris Muchlis Samfrudin",
+    category: "Company Profile",
+    blurb:
+      "Jasa notaris di Tulungagung dengan layanan profesional dan pengalaman yang terbukti.",
+    url: "https://notaris-muchlis-samfrudin.vercel.app/",
   },
 ];
 
@@ -39,25 +60,36 @@ export default function Portfolio() {
   return (
     <section id="portfolio" className="bg-white">
       <div className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-24">
-        <div className="mx-auto max-w-3xl text-center">
+        <motion.div
+          className="mx-auto max-w-3xl text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+        >
           <p className="text-sm font-semibold uppercase tracking-wider text-wm-primary">
             Hasil Kerja
           </p>
           <h2 className="mt-3 text-3xl font-bold leading-tight text-wm-ink md:text-4xl">
             Beberapa website yang sudah kami bantu launching.
           </h2>
-        </div>
+        </motion.div>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {projects.map((p) => (
-            <article
+          {projects.map((p, i) => (
+            <motion.article
               key={p.name}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.55, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] as const }}
+              // whileHover={{ y: -8 }}
               className="group overflow-hidden rounded-2xl border border-wm-surface-2 bg-wm-surface transition hover:-translate-y-1 hover:shadow-xl"
             >
               <div className="aspect-[16/9] overflow-hidden bg-[#dee8ff]">
                 <ProjectImage
                   url={p.url}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
               <div className="p-5">
@@ -83,14 +115,25 @@ export default function Portfolio() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     aria-hidden
+                    className="transition-transform group-hover:translate-x-1"
                   >
                     <path d="M5 12h14" />
                     <path d="m12 5 7 7-7 7" />
                   </svg>
                 </Link>
               </div>
-            </article>
+            </motion.article>
           ))}
+        </div>
+        <div className="mx-auto mt-12 max-w-3xl text-center">
+          <p className="text-sm leading-relaxed text-wm-ink/70 md:text-base">
+            <Link
+              href="/portofolio"
+              className="mt-8 inline-flextext-center gap-1 text-xl mx-auto w-full font-semibold text-wm-primary hover:text-wm-sky"
+            >
+              Lihat Portofolio Lain <span aria-hidden>→</span>
+            </Link>
+          </p>
         </div>
       </div>
     </section>
