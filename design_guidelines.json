@@ -1,0 +1,97 @@
+{
+  "project_name": "Webmula",
+  "app_type": "marketing_site",
+  "theme": "Light mode only (Modern Tech / Trust)",
+  "design_archetype": "Clean SaaS Marketing (Trust, Professional, Approachable)",
+  "typography": {
+    "fonts_to_install": ["next/font/google (Inter)"],
+    "heading": "Inter (Sans-serif), weights: bold/extrabold, tracking-tight (tracking-[-0.04em]).",
+    "body": "Inter (Sans-serif), clean, highly readable.",
+    "scale_rules": {
+      "h1": "text-5xl md:text-6xl font-extrabold leading-[1.08] tracking-[-0.04em]",
+      "h2": "text-3xl md:text-4xl font-bold tracking-tight",
+      "h3": "text-lg md:text-xl font-semibold",
+      "subtitles": "text-sm font-semibold uppercase tracking-wider text-wm-primary",
+      "body": "text-sm leading-relaxed text-wm-ink/70",
+      "small": "text-xs text-wm-ink/50"
+    }
+  },
+  "colors": {
+    "background": "#F3F4F6",
+    "ink_dark": "#0B1D3A",
+    "primary": "#2563EB",
+    "sky": "#00B4FF",
+    "mint": "#22D3A7",
+    "surface": "#F3F4F6",
+    "surface_2": "#E5E7EB",
+    "text_dark": "#0B1D3A",
+    "text_light": "#FFFFFF"
+  },
+  "visual_enhancers": {
+    "surfaces": "White cards on gray surface (#F3F4F6). 1px border-wm-surface-2 with rounded-2xl. Subtle shadows on hover (shadow-[0_10px_15px_-3px_rgba(0,0,0,0.05)]).",
+    "gradients": "bg-gradient-brand (135deg, #2563EB → #00B4FF) for primary CTAs and step icons. bg-gradient-brand-soft available for tinted backgrounds.",
+    "textures": "Decorative blurred blobs (hero-blob utility) — position: absolute, border-radius: 9999px, filter: blur(80px), opacity: 0.5. Used in Hero and ClosingCTA for depth.",
+    "overlays": "No image overlays. Decorative SVG illustrations are pure CSS div mockups (browser window + phone frame).",
+    "border_radius": "rounded-2xl (cards), rounded-xl (buttons/inputs), rounded-full (pills, avatars, primary CTAs)."
+  },
+  "components": {
+    "Navbar": "Sticky top-0 z-50, white/95 backdrop-blur, border-b border-slate-200/80. Logo (image 36x36) + wordmark 'webmula' with 'mula' in text-wm-primary. Nav links (text-sm font-medium text-slate-600, hover:text-wm-primary). CTA button rounded-full bg-wm-primary.",
+    "Hero": "min-h-[calc(100vh-80px)] white bg, 3 hero-blob decorations (primary/sky/mint). Two-column: left = subtitle + h1 + body + 2 CTAs + 3 feature pills. Right = CSS mockup (browser window + phone frame) with skeleton divs in wm-primary/10 tones.",
+    "FeatureSection": "4-column card grid (sm:2 lg:4). Card: rounded-2xl border bg-wm-surface/40 → hover:bg-white, -translate-y-1, shadow. Icon: 12x12 rounded-xl bg-wm-primary/10 with inline SVG (stroke=currentColor, text-wm-primary).",
+    "PricingSection": "Section bg-wm-surface. 3 visible packages + 1 centered (md:col-start-2). Card: rounded-2xl border. Featured card: border-2 border-wm-primary with -my-3, z-10, larger shadow, badge 'PALING POPULER' rounded-full absolute -top-3. Price: text-2xl font-extrabold text-wm-primary. Check/Cross inline SVG icons. Expandable feature list with grid-rows transition.",
+    "Portfolio": "4-column grid (sm:2 lg:4). Card: rounded-2xl border bg-wm-surface, hover:-translate-y-1 hover:shadow-xl. Image aspect 16/9 with group-hover:scale-105 transition-transform duration-500. Category uppercase 12px text-wm-primary. Title text-lg font-semibold. 'Lihat Detail' link with arrow SVG.",
+    "Process": "5-step horizontal grid (md:grid-cols-5). Connecting line: absolute bg-gradient-brand h-0.5 z-0. Each step: 14x14 circle bg-gradient-brand p-0.5 with white inner + step icon. Card: rounded-2xl border bg-white with title + body.",
+    "WhyUs": "4-column card grid. Identical card pattern to FeatureSection (rounded-2xl, icon in 12x12 wm-primary/10 tile, title font-bold, body text-sm/70).",
+    "Testimonials": "3-column on md. Card: rounded-2xl border bg-white p-6. Opening quote SVG (text-wm-primary/30, 28x28). Blockquote text-[15px] text-wm-ink/80. Avatar: 11x11 rounded-full with 3 rotating tones (bg-gradient-brand / bg-wm-ink / bg-wm-primary), initials bold white. Border-t separator above figcaption.",
+    "FAQSection": "2-column details/summary (md:grid-cols-2). Item: rounded-xl border bg-wm-surface/30. Summary: text-sm font-semibold with '+' icon (text-xl, group-open:rotate-45 transition). Answer: border-t bg-white p-4 with text-sm/70.",
+    "ContactForm": "Section bg-wm-surface. Two-column: left = contact info list with icon tile (9x9 wm-primary/10) + label + value/clickable link. Right = card rounded-2xl border bg-white p-8. Tab switcher (WhatsApp/Email) inside p-1 border-wm-surface-2 bg-wm-surface pill. Form fields: rounded-xl border bg-wm-surface focus:border-wm-primary focus:bg-white. Submit: rounded-full bg-gradient-brand. Success banner: border-wm-mint/40 bg-wm-mint/10.",
+    "ClosingCTA": "bg-wm-ink text-white with 2 hero-blobs (primary + sky). Centered: h2 with two-tone wordmark (web in white, mula in text-wm-sky), paragraph text-white/75. CTA: rounded-full bg-gradient-brand with shadow-lg shadow-wm-primary/30 + arrow SVG.",
+    "Footer": "white bg, border-t border-wm-surface-2. 4-column (sm:2 md:4): brand+tagline, Layanan links, Company links, Kontak. Google Maps iframe 100% w h-150 rounded-lg. Copyright bar border-t with text-xs text-wm-ink/50."
+  },
+  "motion": {
+    "scroll": "Native CSS scroll-behavior: smooth on html.",
+    "reveals": "None currently — no Framer Motion / Lenis. CSS-only hover transitions.",
+    "micro_interactions": "hover:-translate-y-1 + shadow on cards. group-hover:scale-105 duration-500 on portfolio images. transition-colors on links. transition on form focus state. group-open:rotate-45 on FAQ +. grid-rows transition on pricing expand.",
+    "blur_decor": "hero-blob decorative elements (blurred radial orbs) animate visually via blur filter, static positions."
+  },
+  "layout": {
+    "container_width": "max-w-[1200px] (primary sections) or max-w-6xl (some sections).",
+    "section_padding": "py-20 md:py-28 or py-20 md:py-24 — generous vertical rhythm.",
+    "section_padding_horizontal": "px-6 md:px-8 (or px-5 md:px-8 for 6xl containers).",
+    "section_backgrounds": "Alternating: bg-white, bg-wm-surface, bg-wm-ink (ClosingCTA).",
+    "grid": "1 → 2 → 3 → 4 columns responsive. Gap-4 to gap-6. md:col-start-2 for centering last pricing card."
+  },
+  "accessibility": {
+    "icons": "All decorative SVGs use aria-hidden or aria-hidden=true. Functional icons paired with text.",
+    "navigation": "Sticky header with z-50. Anchor links (#kontak, #portfolio, #harga, #faq, #layanan, #proses).",
+    "forms": "Required fields, labels above inputs. Tab switcher uses button[aria-expanded] for pricing expand.",
+    "contrast": "text-wm-ink/70 on white for body. text-wm-ink/50 for fine print. text-wm-primary on white for emphasis."
+  },
+  "libraries_to_install": [],
+  "instructions_to_main_agent": [
+    "Use Next.js App Router + Tailwind v4 (@theme in globals.css, no tailwind.config).",
+    "Stick to semantic color tokens: text-wm-ink, text-wm-primary, text-wm-sky, text-wm-mint, bg-wm-surface, bg-wm-surface-2, border-wm-surface-2. Never use raw colors in className.",
+    "Cards: rounded-2xl border border-wm-surface-2 bg-white with hover lift (-translate-y-1 + shadow).",
+    "Buttons: primary = rounded-full (or rounded-xl) bg-wm-primary hover:bg-wm-ink OR bg-gradient-brand. Secondary = border border-wm-surface-2 hover:border-wm-primary.",
+    "Section header pattern: eyebrow (text-sm uppercase tracking-wider text-wm-primary) + h2 (text-3xl md:text-4xl font-bold tracking-tight) centered max-w-2xl/3xl.",
+    "Icons: inline SVG with stroke=currentColor, stroke-width 1.8-2.5, round caps/joins. Color via parent text-* class. No emoji icons (Hero already violates this with ✆✉⏱ in ContactForm — replace with SVG).",
+    "Spacing rhythm: py-20 md:py-28 for sections, gap-4/5/6 in grids, mt-12 between header and grid.",
+    "Hero + ClosingCTA: include hero-blob decorative divs (positioned absolute, blurred, opacity-50) for visual depth.",
+    "Contact CTAs use wa.me/6285196399108 and mailto:webmuladigital@gmail.com. Phone number format 0851-9639-9108.",
+    "Footer must include Google Maps iframe (embed URL with pb=!1m18...).",
+    "All copy in Bahasa Indonesia.",
+    "Two-tone wordmark: <span>web</span><span class='text-wm-primary'>mula</span> (navbar/footer/testimonials) or web white + mula text-wm-sky on dark ClosingCTA.",
+    "Project images: use ProjectImage component to fetch Open Graph screenshot from p.url.",
+    "Testimonial avatars cycle through bg-gradient-brand / bg-wm-ink / bg-wm-primary to avoid identical cards."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Create depth with hero-blob decorations + subtle shadows, not heavy ones.",
+    "Hover states must include a transition (transition-colors, transition-transform, transition-shadow) — never abrupt.",
+    "Use generous spacing (py-20+). Section bg alternation (white / surface) creates rhythm without dividers.",
+    "Never use 'transition: all'. Specify properties: transition-colors, transition-transform, transition-shadow.",
+    "Container is left-aligned (mx-auto) NOT centered via flex/grid on body.",
+    "Every interactive element MUST have appropriate aria attributes (aria-label on icon-only links, aria-expanded on toggles, aria-hidden on decorative SVGs).",
+    "Never use emoji (🤖🧠💭💡🔮🎯 etc) for icons. Always inline SVG. (Current ContactForm uses ✆✉⏱ — these are not AI-assistant emojis but still inconsistent; prefer SVG icons matching the rest of the site.)",
+    "Maintain color token discipline — never hardcode hex in className. Use wm-* tokens or arbitrary [color] only when introducing a new token to @theme."
+  ]
+}
