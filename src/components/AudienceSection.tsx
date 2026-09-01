@@ -2,7 +2,7 @@ export default function AudienceSection() {
   return (
     <section className="bg-white">
       <div className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-24">
-        <div className="max-w-3xl">
+        <div className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-semibold uppercase tracking-wider text-wm-primary">
             Untuk Siapa
           </p>

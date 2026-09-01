@@ -38,7 +38,7 @@ export default function Services() {
   return (
     <section id="layanan" className="bg-white">
       <div className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-24">
-        <div className="max-w-2xl">
+        <div className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold uppercase tracking-wider text-wm-primary">
             Layanan
           </p>

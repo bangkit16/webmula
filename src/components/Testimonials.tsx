@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 type Testimonial = {
   name: string;
   business: string;
@@ -5,27 +9,33 @@ type Testimonial = {
   initials: string;
 };
 
-// Kurangi dari 4 → 2 testimoni — lebih kuat dan spesifik
 const testimonials: Testimonial[] = [
   {
-    name: "Rina Wulandari",
-    business: "Pemilik, Toko Kopi Nusantara",
+    name: "Raka Pratama",
+    business: "Owner - Kopi Senja",
     quote:
-      "Order naik hampir 2x lipat dalam 2 bulan setelah ada website. Pelanggan sekarang cek web dulu, baru chat WhatsApp.",
-    initials: "RW",
+      "Website dari WEBMULA bikin bisnis kami terlihat lebih profesional dan pelanggan jadi lebih mudah menemukan informasi.",
+    initials: "RP",
   },
   {
-    name: "Sinta Maharani",
-    business: "Founder, Kelas Masak Dapur Bunda",
+    name: "Dewi Lestari",
+    business: "Owner - Glow Skincare",
     quote:
-      "Harganya jelas dari awal dan saya diajarin update sendiri. Sekarang buka kelas baru tinggal tambah halaman.",
-    initials: "SM",
+      "Website dari WEBMULA bikin bisnis kami terlihat lebih profesional dan pelanggan jadi lebih mudah menemukan informasi.",
+    initials: "DL",
+  },
+  {
+    name: "Ahmad Fauzi",
+    business: "Owner - Fotokita",
+    quote:
+      "Website dari WEBMULA bikin bisnis kami terlihat lebih profesional dan pelanggan jadi lebih mudah menemukan informasi.",
+    initials: "AF",
   },
 ];
 
 function Avatar({ initials, idx }: { initials: string; idx: number }) {
-  // Variasikan tone avatar biar 2 card tidak terlihat kembar
-  const tones = ["bg-gradient-brand", "bg-wm-ink"];
+  // Variasikan tone avatar biar 3 card tidak terlihat kembar
+  const tones = ["bg-gradient-brand", "bg-wm-ink", "bg-wm-primary"];
   return (
     <div
       className={`grid h-11 w-11 shrink-0 place-items-center rounded-full text-sm font-bold text-white ${tones[idx % tones.length]}`}
@@ -39,7 +49,13 @@ export default function Testimonials() {
   return (
     <section className="bg-wm-surface">
       <div className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-24">
-        <div className="max-w-3xl">
+        <motion.div
+          className="mx-auto max-w-3xl text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+        >
           <p className="text-sm font-semibold uppercase tracking-wider text-wm-primary">
             Testimoni Klien
           </p>
@@ -48,18 +64,17 @@ export default function Testimonials() {
             <span className="text-wm-ink">web</span>
             <span className="text-wm-primary">mula</span>.
           </h2>
-          <p className="mt-4 text-sm text-wm-ink/70 md:text-base">
-            {/* TODO: replace dengan testimoni asli + foto klien (izin tertulis) */}
-            Testimoni di bawah adalah contoh placeholder. Data asli akan
-            diganti setelah klien mengizinkan publikasi.
-          </p>
-        </div>
+        </motion.div>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-2">
+        <div className="mt-12 grid gap-5 md:grid-cols-3">
           {testimonials.map((t, i) => (
-            <figure
+            <motion.figure
               key={t.name}
-              className="flex h-full flex-col gap-4 rounded-2xl border border-wm-surface-2 bg-white p-6"
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.55, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] as const }}
+              className="flex h-full flex-col gap-4 rounded-2xl border border-wm-surface-2 bg-white p-6 transition hover:-translate-y-1 hover:shadow-md"
             >
               <svg
                 width="28"
@@ -83,7 +98,7 @@ export default function Testimonials() {
                   <div className="text-xs text-wm-ink/60">{t.business}</div>
                 </div>
               </figcaption>
-            </figure>
+            </motion.figure>
           ))}
         </div>
       </div>

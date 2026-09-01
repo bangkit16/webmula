@@ -1,70 +1,154 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+
+const serviceLinks = [
+  ["Landing Page", "/#harga"],
+  ["Business Website", "/#harga"],
+  ["Online Store", "/#harga"],
+  ["Maintenance", "/#kontak"],
+] as const;
+
+const companyLinks = [
+  ["Portfolio", "/portofolio"],
+  ["Tentang Webmula", "/"],
+  ["FAQ", "/#faq"],
+  ["Kontak", "/#kontak"],
+] as const;
+
 export default function Footer() {
   return (
-    <footer className="border-t border-wm-surface-2 bg-wm-surface">
-      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-12 md:grid-cols-3 md:px-8">
-        <div>
-          <div className="flex items-center gap-2">
-            <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-brand font-extrabold text-white">
-              W
+    <footer className=" w-full border-t border-wm-surface-2 bg-white text-left">
+      <motion.div
+        className="mx-auto grid max-w-[1200px] gap-10 px-6 py-16 sm:grid-cols-2 md:grid-cols-4 md:px-8"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-80px" }}
+        variants={{
+          hidden: {},
+          show: { transition: { staggerChildren: 0.08 } },
+        }}
+      >
+        <motion.div
+          className="space-y-4"
+          variants={{
+            hidden: { opacity: 0, y: 16 },
+            show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+          }}
+        >
+          <Link
+            href="/"
+            className="flex items-center gap-2.5"
+            aria-label="Webmula home"
+          >
+            <Image
+              src="/image/logo-webmula.png"
+              alt="Logo Webmula"
+              width={36}
+              height={36}
+            />
+            <span className="text-base font-bold tracking-[-0.04em] text-wm-ink">
+              web<span className="text-wm-primary">mula</span>
             </span>
-            <span className="text-lg font-extrabold tracking-tight">
-              <span className="text-wm-ink">web</span>
-              <span className="text-wm-primary">mula</span>
-            </span>
-          </div>
-          <p className="mt-4 text-sm leading-relaxed text-wm-ink/70">
-            Jasa pembuatan website untuk UMKM dan bisnis kecil di Indonesia.
-            Profesional, transparan, dan bisa dikelola sendiri.
+          </Link>
+          <p className="max-w-[220px] text-sm leading-6 text-wm-ink/60">
+            Website untuk bisnis yang mau mulai tumbuh.
           </p>
-        </div>
+          <a
+            href="https://wa.me/6285196399108"
+            className="inline-flex text-sm font-semibold text-wm-primary hover:text-wm-ink"
+          >
+            Konsultasi gratis →
+          </a>
+        </motion.div>
 
-        <div>
-          <h4 className="text-sm font-semibold text-wm-ink">Jelajahi</h4>
-          <ul className="mt-4 space-y-2 text-sm text-wm-ink/70">
+        <FooterLinks title="Layanan" links={serviceLinks} />
+        <FooterLinks title="Company" links={companyLinks} />
+
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, y: 16 },
+            show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+          }}
+        >
+          <h2 className="text-sm font-bold text-wm-ink">Hubungi Kami</h2>
+          <ul className="mt-5 space-y-3 text-sm text-wm-ink/60">
             <li>
-              <a href="#layanan" className="hover:text-wm-primary">
-                Layanan
+              <a
+                href="https://wa.me/6285196399108"
+                className="hover:text-wm-primary"
+              >
+                0851-9639-9108
               </a>
             </li>
             <li>
-              <a href="#proses" className="hover:text-wm-primary">
-                Cara Kerja
+              <a
+                href="mailto:webmuladigital@gmail.com"
+                className="hover:text-wm-primary"
+              >
+                webmuladigital@gmail.com
               </a>
             </li>
             <li>
-              <a href="#portfolio" className="hover:text-wm-primary">
-                Hasil Kerja
+              <a
+                href="https://maps.app.goo.gl/LRvnxrDk75JdZAqo9"
+                className="hover:text-wm-primary"
+              >
+                Jl. Gubeng Kertajaya IX G No.5B, Airlangga, Kec. Gubeng,
+                Surabaya, Jawa Timur 60286
               </a>
             </li>
-            <li>
-              <a href="#kontak" className="hover:text-wm-primary">
-                Kontak
-              </a>
+            <li className="pt-2">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.7022081196897!2d112.75784589999999!3d-7.274686899999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fbd23ca3c777%3A0x48e0a10ad25572f7!2sJl.%20Gubeng%20Kertajaya%20IX%20G%20No.5-B%2C%20RT.011%2FRW.05%2C%20Airlangga%2C%20Kec.%20Gubeng%2C%20Surabaya%2C%20Jawa%20Timur%2060286!5e0!3m2!1sid!2sid!4v1788229711315!5m2!1sid!2sid"
+                width="100%"
+                height="150"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+                title="Lokasi Webmula"
+                className="rounded-lg"
+              />
             </li>
           </ul>
-        </div>
-
-        <div>
-          <h4 className="text-sm font-semibold text-wm-ink">Kontak</h4>
-          {/* TODO: ganti dengan kontak resmi Webmula */}
-          <ul className="mt-4 space-y-2 text-sm text-wm-ink/70">
-            <li>WhatsApp: +62 812-3456-7890</li>
-            <li>Email: halo@webmula.id</li>
-            <li>Senin–Jumat, 09.00–18.00 WIB</li>
-          </ul>
-        </div>
-      </div>
-
+        </motion.div>
+      </motion.div>
       <div className="border-t border-wm-surface-2">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-5 py-5 text-xs text-wm-ink/60 md:flex-row md:px-8">
-          <p>
-            © {new Date().getFullYear()} Webmula. Semua hak dilindungi.
-          </p>
-          <p>
-            Dibuat dengan Next.js + Tailwind, dengan warna dari DESIGN.md.
-          </p>
-        </div>
+        <p className="mx-auto max-w-[1200px] px-6 py-5 text-xs text-wm-ink/50 md:px-8">
+          © {new Date().getFullYear()} Webmula. Semua hak dilindungi.
+        </p>
       </div>
     </footer>
+  );
+}
+
+function FooterLinks({
+  title,
+  links,
+}: {
+  title: string;
+  links: readonly (readonly [string, string])[];
+}) {
+  return (
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 16 },
+        show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+      }}
+    >
+      <h2 className="text-sm font-bold text-wm-ink">{title}</h2>
+      <ul className="mt-5 space-y-3 text-sm text-wm-ink/60">
+        {links.map(([label, href]) => (
+          <li key={href + label}>
+            <a href={href} className="hover:text-wm-primary">
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </motion.div>
   );
 }
