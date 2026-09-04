@@ -79,7 +79,7 @@ export default function Hero() {
         transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
       />
 
-      <div className="relative mx-auto w-full max-w-[1200px] grid items-center gap-12 px-6 py-16 md:grid-cols-2 md:px-8 md:py-0">
+      <div className="relative mx-auto w-full max-w-[1200px] grid items-center gap-12 px-6 py-16 lg:grid-cols-2 md:px-8 md:py-0">
         <div className="max-w-xl py-8">
           <motion.p
             className="text-sm font-semibold uppercase tracking-[0.12em] text-wm-primary"
@@ -122,7 +122,7 @@ export default function Hero() {
               className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-wm-primary px-6 text-sm font-semibold text-white shadow-sm transition hover:bg-wm-ink"
             >
               <FeatureIcon name="chat" />
-              Mulai dari Rp600.000
+              Konsultasikan Kebutuhan Anda
             </motion.a>
             <motion.a
               href="#portfolio"
@@ -165,7 +165,7 @@ export default function Hero() {
               <svg className="h-4 w-4 text-wm-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
               </svg>
-              Domain .com gratis
+              Gratis domain
             </span>
             <span className="flex items-center gap-1.5">
               <svg className="h-4 w-4 text-wm-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -183,7 +183,7 @@ export default function Hero() {
         </div>
 
         <motion.div
-          className="relative flex min-h-[420px] items-center justify-center md:min-h-[560px] md:justify-end md:pr-8"
+          className="relative hidden min-h-[420px] items-center justify-center lg:flex lg:min-h-[560px] lg:justify-end lg:pr-8"
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{

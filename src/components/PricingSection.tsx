@@ -334,7 +334,7 @@ export default function PricingSection() {
             Mulai dari yang kamu butuhkan.
           </h2>
         </motion.div>
-        <div className="mt-12 grid items-start gap-5 md:grid-cols-3">
+        <div className="mt-12 flex flex-wrap justify-center items-start gap-6">
           {packages.map((pkg, i) => (
             <motion.div
               key={pkg.title}
@@ -342,7 +342,7 @@ export default function PricingSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.55, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] as const }}
-              className={i === 3 ? "md:col-start-2" : undefined}
+              className="w-full max-w-[360px]"
             >
               <PackageCard pkg={pkg} />
             </motion.div>
