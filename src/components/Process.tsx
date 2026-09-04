@@ -102,7 +102,7 @@ export default function Process() {
           </h2>
         </motion.div>
 
-        <ol className="relative mt-14 space-y-8 md:grid md:grid-cols-5 md:gap-5 md:items-stretch">
+        <ol className="relative mt-14 grid gap-4 sm:grid-cols-2 md:grid-cols-5 md:gap-5 md:items-stretch">
           {/* Connecting line on desktop */}
           <motion.div
             aria-hidden
@@ -121,20 +121,20 @@ export default function Process() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: 0.15 + i * 0.1, ease: [0.22, 1, 0.36, 1] as const }}
-              className="relative md:flex md:flex-col md:items-center md:text-center md:h-full z-10 transition hover:-translate-y-1"
+              className="relative flex flex-col items-center text-center md:h-full z-10 transition hover:-translate-y-1"
             >
               <motion.div
                 initial={{ scale: 0.6, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: 0.1 + i * 0.1, type: "spring", stiffness: 220, damping: 18 }}
-                className="mb-3 inline-flex h-14 w-14 items-center justify-center rounded-full bg-gradient-brand p-0.5"
+                className="mb-3 inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-gradient-brand p-0.5"
               >
                 <div className="h-full w-full flex items-center justify-center rounded-full bg-white">
                   <StepIcon icon={s.icon} />
                 </div>
               </motion.div>
-              <div className="rounded-2xl border border-wm-surface-2 bg-white p-5 text-left md:mt-2 md:w-full md:flex-1">
+              <div className="w-full rounded-2xl border border-wm-surface-2 bg-white p-5 text-center md:mt-2 md:flex-1">
                 <h3 className="text-base font-semibold text-wm-ink">
                   {s.title}
                 </h3>

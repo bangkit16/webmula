@@ -18,9 +18,21 @@ export default function ContactForm() {
 
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // TODO: integrasikan ke backend/email service (Resend, Formspree, dsb).
-    // Untuk sekarang cukup log + tampilkan state sukses di UI.
-    console.log("[Webmula] contact form submitted:", data, method);
+    
+    const phoneNumber = "6285196399108";
+    const subject = "Konsultasi Website Webmula";
+    const body = `Nama: ${data.name}\n${method === "whatsapp" ? "WhatsApp" : "Email"}: ${data.contact}\n\nPesan:\n${data.message}`;
+    
+    if (method === "whatsapp") {
+      // Redirect to WhatsApp
+      const waUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(body)}`;
+      window.open(waUrl, "_blank");
+    } else {
+      // Redirect to email
+      const emailUrl = `mailto:webmuladigital@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = emailUrl;
+    }
+    
     setSent(true);
     setData(initial);
   }
