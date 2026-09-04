@@ -88,7 +88,7 @@ export default function Hero() {
             animate="show"
             custom={0}
           >
-            Webmula untuk bisnis kecil
+            Jasa Pembuatan Website Terpercaya
           </motion.p>
           <motion.h1
             className="mt-5 text-5xl font-extrabold leading-[1.08] tracking-[-0.04em] text-wm-ink md:text-6xl"
@@ -97,9 +97,9 @@ export default function Hero() {
             animate="show"
             custom={1}
           >
-            Website simpel.
+            Website jadi dalam
             <br />
-            Bisnis makin <span className="text-wm-primary">profesional.</span>
+            <span className="text-wm-primary">1 hari kerja</span>
           </motion.h1>
           <motion.p
             className="mt-6 max-w-lg text-lg leading-8 text-wm-ink/70 md:text-xl"
@@ -108,17 +108,7 @@ export default function Hero() {
             animate="show"
             custom={2}
           >
-            Website untuk bisnis yang mau mulai tumbuh.
-          </motion.p>
-          <motion.p
-            className="mt-3 max-w-xl text-base leading-7 text-wm-ink/60"
-            variants={fadeUp}
-            initial="hidden"
-            animate="show"
-            custom={3}
-          >
-            Bantu bisnis kecil tampil lebih terpercaya dengan website yang
-            mobile-friendly dan terhubung ke WhatsApp.
+            Tampil profesional di Google tanpa ribet. Cocok untuk bisnis kecil yang mau naik kelas.
           </motion.p>
           <motion.div
             className="mt-8 flex flex-col gap-3 sm:flex-row"
@@ -128,17 +118,17 @@ export default function Hero() {
             custom={4}
           >
             <motion.a
-              href="#kontak"
+              href="#harga"
               className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-wm-primary px-6 text-sm font-semibold text-white shadow-sm transition hover:bg-wm-ink"
             >
               <FeatureIcon name="chat" />
-              Konsultasi Gratis
+              Mulai dari Rp600.000
             </motion.a>
             <motion.a
               href="#portfolio"
               className="inline-flex min-h-12 items-center justify-center rounded-xl border border-wm-surface-2 bg-white px-6 text-sm font-semibold text-wm-ink transition hover:border-wm-primary hover:text-wm-primary"
             >
-              Lihat Contoh Website
+              Lihat Portofolio
             </motion.a>
           </motion.div>
           <motion.div
@@ -161,6 +151,34 @@ export default function Hero() {
                     : "Basic SEO"}
               </motion.span>
             ))}
+          </motion.div>
+          
+          {/* Value propositions - webekonomis style */}
+          <motion.div 
+            className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-xs text-wm-ink/60"
+            variants={fadeUp}
+            initial="hidden"
+            animate="show"
+            custom={6}
+          >
+            <span className="flex items-center gap-1.5">
+              <svg className="h-4 w-4 text-wm-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              Domain .com gratis
+            </span>
+            <span className="flex items-center gap-1.5">
+              <svg className="h-4 w-4 text-wm-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              Hosting gratis
+            </span>
+            <span className="flex items-center gap-1.5">
+              <svg className="h-4 w-4 text-wm-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              Gratis SSL
+            </span>
           </motion.div>
         </div>
 

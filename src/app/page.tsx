@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
@@ -11,6 +12,9 @@ import ClosingCTA from "@/components/ClosingCTA";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import PricingSection from "@/components/PricingSection";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import LivePurchaseNotification from "@/components/LivePurchaseNotification";
+import DiscountBanner from "@/components/DiscountBanner";
 
 const features = [
   {
@@ -177,9 +181,12 @@ function FAQSection() {
 }
 
 export default function Home() {
+  const [showBanner, setShowBanner] = useState(true);
+
   return (
     <>
-      <Navbar />
+      <DiscountBanner showBanner={showBanner} onClose={() => setShowBanner(false)} />
+      <Navbar showBanner={showBanner} />
       <main className="flex-1">
         <Hero />
         <FeatureSection />
@@ -193,6 +200,8 @@ export default function Home() {
         <ContactForm />
       </main>
       <Footer />
+      <FloatingWhatsApp />
+      <LivePurchaseNotification />
     </>
   );
 }

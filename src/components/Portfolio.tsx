@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import ProjectImage from "./ProjectImage";
 
@@ -83,57 +82,50 @@ export default function Portfolio() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.55, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] as const }}
-              // whileHover={{ y: -8 }}
-              className="group overflow-hidden rounded-2xl border border-wm-surface-2 bg-wm-surface transition hover:-translate-y-1 hover:shadow-xl"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-wm-surface-2 bg-wm-surface transition hover:-translate-y-1 hover:shadow-xl"
             >
-              <div className="aspect-[16/9] overflow-hidden bg-[#dee8ff]">
+              <div className="aspect-[16/9] overflow-hidden bg-[#dee8ff] shrink-0">
                 <ProjectImage
                   url={p.url}
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
-              <div className="p-5">
+              <div className="flex flex-1 flex-col p-5">
                 <span className="text-xs font-semibold uppercase tracking-wider text-wm-primary">
                   {p.category}
                 </span>
                 <h3 className="mt-2 text-lg font-semibold text-wm-ink">
                   {p.name}
                 </h3>
-                <p className="mt-1 text-sm text-wm-ink/70">{p.blurb}</p>
-                <Link
-                  href="/portofolio"
-                  className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-wm-primary hover:text-wm-sky"
-                >
-                  Lihat Detail
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden
-                    className="transition-transform group-hover:translate-x-1"
+                <p className="mt-1 flex-1 text-sm text-wm-ink/70">{p.blurb}</p>
+                <div className="mt-4">
+                  <a
+                    href={p.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-wm-primary px-3 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-wm-ink"
                   >
-                    <path d="M5 12h14" />
-                    <path d="m12 5 7 7-7 7" />
-                  </svg>
-                </Link>
+                    Lihat Website
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden
+                    >
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                      <polyline points="15 3 21 3 21 9" />
+                      <line x1="10" y1="14" x2="21" y2="3" />
+                    </svg>
+                  </a>
+                </div>
               </div>
             </motion.article>
           ))}
-        </div>
-        <div className="mx-auto mt-12 max-w-3xl text-center">
-          <p className="text-sm leading-relaxed text-wm-ink/70 md:text-base">
-            <Link
-              href="/portofolio"
-              className="mt-8 inline-flextext-center gap-1 text-xl mx-auto w-full font-semibold text-wm-primary hover:text-wm-sky"
-            >
-              Lihat Portofolio Lain <span aria-hidden>→</span>
-            </Link>
-          </p>
         </div>
       </div>
     </section>

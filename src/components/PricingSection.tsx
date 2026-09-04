@@ -10,6 +10,7 @@ type Pkg = {
   title: string;
   description: string;
   price: string;
+  priceMonthly?: string;
   featured?: boolean;
   features: PkgFeature[];
 };
@@ -20,6 +21,7 @@ const packages: Pkg[] = [
     title: "Landing Page Website",
     description: "Cocok untuk promosi produk atau bisnis kecil.",
     price: "Rp 600.000",
+    priceMonthly: "Rp 50.000/bulan",
     features: [
       { text: "1 Halaman", included: true },
       { text: "Domain gratis (tahun pertama)", included: true },
@@ -41,6 +43,7 @@ const packages: Pkg[] = [
     description:
       "Cocok untuk bisnis atau UMKM yang mau tampil lebih serius dengan budget terbatas.",
     price: "Rp 1.500.000",
+    priceMonthly: "Rp 125.000/bulan",
     featured: true,
     features: [
       { text: "1-2 Halaman (Home, About)", included: true },
@@ -66,6 +69,7 @@ const packages: Pkg[] = [
     title: "Website Custom Bisnis",
     description: "Cocok untuk bisnis yang butuh fitur lebih dan konten aktif.",
     price: "Rp 2.500.000",
+    priceMonthly: "Rp 208.000/bulan",
     features: [
       {
         text: "3-7 Halaman (Home, About, Gallery, Blog, Artikel)",
@@ -91,6 +95,7 @@ const packages: Pkg[] = [
     description:
       "Untuk bisnis yang butuh sistem atau fitur unik di luar template standar.",
     price: "Harga menyesuaikan",
+    priceMonthly: undefined,
     features: [
       { text: "Jumlah halaman & fitur sesuai kebutuhan", included: true },
       { text: "Domain & hosting (skema disesuaikan project)", included: true },
@@ -218,9 +223,20 @@ function PackageCard({ pkg }: { pkg: Pkg }) {
           {pkg.description}
         </p>
         <div className="mt-6">
-          <strong className="block text-2xl font-extrabold tracking-tight text-wm-primary">
-            {pkg.price}
-          </strong>
+          {pkg.priceMonthly ? (
+            <>
+              <strong className="block text-2xl font-extrabold tracking-tight text-wm-primary">
+                {pkg.priceMonthly}
+              </strong>
+              <p className="mt-1 text-xs text-wm-ink/60">
+                {pkg.price} per tahun
+              </p>
+            </>
+          ) : (
+            <strong className="block text-2xl font-extrabold tracking-tight text-wm-primary">
+              {pkg.price}
+            </strong>
+          )}
         </div>
       </div>
 

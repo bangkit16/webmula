@@ -13,7 +13,7 @@ const links = [
   ["FAQ", "/#faq"],
 ] as const;
 
-export default function Navbar() {
+export default function Navbar({ showBanner = true }: { showBanner?: boolean }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -21,7 +21,7 @@ export default function Navbar() {
       initial={{ y: -32, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] as const }}
-      className="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/95 backdrop-blur"
+      className={`sticky top-0 z-40 w-full border-b border-slate-200/80 bg-white/95 backdrop-blur transition-all duration-300 ${showBanner ? "pt-8 md:pt-10" : ""}`}
     >
       <nav className="mx-auto flex min-h-20 max-w-[1200px] items-center justify-between gap-6 px-6 md:px-8">
         <Link href="/" className="flex shrink-0 items-center gap-2.5" aria-label="Webmula home">
