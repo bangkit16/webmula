@@ -88,7 +88,7 @@ export default function Hero() {
             animate="show"
             custom={0}
           >
-            Jasa Pembuatan Website Terpercaya
+            Jasa Pembuatan Website Murah untuk UMKM
           </motion.p>
           <motion.h1
             className="mt-5 text-5xl font-extrabold leading-[1.08] tracking-[-0.04em] text-wm-ink md:text-6xl"
@@ -97,9 +97,9 @@ export default function Hero() {
             animate="show"
             custom={1}
           >
-            Website jadi dalam
+            Website murah,
             <br />
-            <span className="text-wm-primary">1 hari kerja</span>
+            <span className="text-wm-primary">bisnis lebih mudah.</span>
           </motion.h1>
           <motion.p
             className="mt-6 max-w-lg text-lg leading-8 text-wm-ink/70 md:text-xl"
@@ -108,7 +108,7 @@ export default function Hero() {
             animate="show"
             custom={2}
           >
-            Tampil profesional di Google tanpa ribet. Cocok untuk bisnis kecil yang mau naik kelas.
+            Jasa pembuatan website profesional dengan harga transparan untuk memperkenalkan bisnis Anda di Google.
           </motion.p>
           <motion.div
             className="mt-8 flex flex-col gap-3 sm:flex-row"
@@ -122,13 +122,13 @@ export default function Hero() {
               className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-wm-primary px-6 text-sm font-semibold text-white shadow-sm transition hover:bg-wm-ink"
             >
               <FeatureIcon name="chat" />
-              Konsultasikan Kebutuhan Anda
+              Konsultasi Gratis
             </motion.a>
             <motion.a
               href="#portfolio"
               className="inline-flex min-h-12 items-center justify-center rounded-xl border border-wm-surface-2 bg-white px-6 text-sm font-semibold text-wm-ink transition hover:border-wm-primary hover:text-wm-primary"
             >
-              Lihat Portofolio
+              Lihat Contoh Website
             </motion.a>
           </motion.div>
           <motion.div

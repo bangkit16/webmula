@@ -1,357 +1,70 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
-type PkgFeature = { text: string; included: boolean };
-
-type Pkg = {
-  label: string;
-  title: string;
+type PricingPlan = {
+  id: string;
+  name: string;
   description: string;
-  price: string;
-  priceMonthly?: string;
-  featured?: boolean;
-  features: PkgFeature[];
+  monthlyPrice: string;
+  annualPrice: string;
+  originalMonthlyPrice: string;
+  originalAnnualPrice: string;
+  discountBadge: string;
+  savingsMonthlyNote: string;
+  savingsAnnualNote: string;
+  popular?: boolean;
+  features: string[];
+  ctaText: string;
 };
 
-const packages: Pkg[] = [
-  {
-    label: "BASIC",
-    title: "Landing Page Website",
-    description: "Cocok untuk promosi produk atau bisnis kecil.",
-    price: "Rp 600.000",
-    priceMonthly: "Rp 50.000/bulan",
-    features: [
-      { text: "1 Halaman", included: true },
-      { text: "Domain gratis (tahun pertama)", included: true },
-      { text: "Hosting gratis (tahun pertama)", included: true },
-      { text: "Free SSL", included: true },
-      { text: "Mobile friendly", included: true },
-      { text: "Desain profesional", included: true },
-      { text: "Integrasi tombol WhatsApp", included: true },
-      { text: "Formulir kontak", included: true },
-      { text: "Basic SEO", included: true },
-      { text: "Admin panel", included: false },
-      { text: "Blog/artikel", included: false },
-      { text: "Revisi (1x minor revision only)", included: false },
-    ],
-  },
-  {
-    label: "STANDARD",
-    title: "Company Profile Website",
-    description:
-      "Cocok untuk bisnis atau UMKM yang mau tampil lebih serius dengan budget terbatas.",
-    price: "Rp 1.500.000",
-    priceMonthly: "Rp 125.000/bulan",
-    featured: true,
-    features: [
-      { text: "1-2 Halaman (Home, About)", included: true },
-      { text: "Domain gratis (tahun pertama)", included: true },
-      { text: "Hosting gratis (tahun pertama)", included: true },
-      { text: "Free SSL", included: true },
-      { text: "Mobile friendly", included: true },
-      { text: "Desain profesional", included: true },
-      { text: "Integrasi tombol WhatsApp", included: true },
-      { text: "Formulir kontak", included: true },
-      { text: "Basic SEO", included: true },
-      {
-        text: "Admin panel (edit teks & gambar dasar — bukan CRUD penuh)",
-        included: true,
-      },
-      { text: "Blog/artikel", included: false },
-      { text: "Formulir kontak database", included: false },
-      { text: "Revisi lebih dari 1x", included: false },
-    ],
-  },
-  {
-    label: "PREMIUM",
-    title: "Website Custom Bisnis",
-    description: "Cocok untuk bisnis yang butuh fitur lebih dan konten aktif.",
-    price: "Rp 2.500.000",
-    priceMonthly: "Rp 208.000/bulan",
-    features: [
-      {
-        text: "3-7 Halaman (Home, About, Gallery, Blog, Artikel)",
-        included: true,
-      },
-      { text: "Domain gratis (tahun pertama)", included: true },
-      { text: "Hosting gratis (tahun pertama)", included: true },
-      { text: "Free SSL", included: true },
-      { text: "Mobile friendly", included: true },
-      { text: "Desain custom sesuai brand", included: true },
-      { text: "Integrasi tombol WhatsApp", included: true },
-      { text: "Formulir kontak + database", included: true },
-      { text: "Basic SEO", included: true },
-      { text: "Admin panel lengkap (CRUD penuh)", included: true },
-      { text: "Upload blog/artikel", included: true },
-      { text: "Bantuan penggunaan website", included: true },
-      { text: "2x revisi minor", included: true },
-    ],
-  },
-  {
-    label: "CUSTOM",
-    title: "Custom Website",
-    description:
-      "Untuk bisnis yang butuh sistem atau fitur unik di luar template standar.",
-    price: "Harga menyesuaikan",
-    priceMonthly: undefined,
-    features: [
-      { text: "Jumlah halaman & fitur sesuai kebutuhan", included: true },
-      { text: "Domain & hosting (skema disesuaikan project)", included: true },
-      { text: "Free SSL", included: true },
-      { text: "Mobile friendly", included: true },
-      { text: "Desain & UX 100% custom sesuai brand", included: true },
-      {
-        text: "Integrasi API/third-party (payment, CRM, marketplace)",
-        included: true,
-      },
-      { text: "Database & backend custom", included: true },
-      { text: "Admin panel/dashboard sesuai kebutuhan", included: true },
-      { text: "Sesi konsultasi & scoping sebelum development", included: true },
-      { text: "Revisi sesuai kesepakatan kontrak", included: true },
-    ],
-  },
+const plans: PricingPlan[] = [
+  { id: "basic", name: "Basic", description: "Cocok untuk promosi produk atau bisnis kecil.", monthlyPrice: "Rp 25.000", annualPrice: "Rp 200.000", originalMonthlyPrice: "Rp 35.000", originalAnnualPrice: "Rp 300.000", discountBadge: "DISKON 33%", savingsMonthlyNote: "Dibayar per tahun Rp 200.000 • termasuk domain & hosting", savingsAnnualNote: "Termasuk domain & hosting", ctaText: "Pilih Basic", features: ["1 Halaman Utama Responsif", "Desain Modern & Cepat Diakses", "Integrasi WhatsApp Chat", "Gratis SSL & Keamanan", "Setup Cepat 1 Hari Kerja"] },
+  { id: "standard", name: "Standard", description: "Cocok untuk bisnis atau UMKM yang mau tampil lebih serius.", monthlyPrice: "Rp 60.000", annualPrice: "Rp 500.000", originalMonthlyPrice: "Rp 85.000", originalAnnualPrice: "Rp 700.000", discountBadge: "DISKON 31%", savingsMonthlyNote: "Dibayar per tahun Rp 500.000 • termasuk domain & hosting", savingsAnnualNote: "Termasuk domain & hosting", ctaText: "Pilih Standard", popular: true, features: ["1–2 Halaman (Home, Layanan, Kontak)", "Desain Modern & Full Responsif", "Google Maps & Lokasi Bisnis", "Gratis Email Bisnis & SSL", "Basic SEO Siap Muncul di Google"] },
+  { id: "premium", name: "Premium", description: "Cocok untuk bisnis yang butuh fitur lebih dan konten aktif.", monthlyPrice: "Rp 120.000", annualPrice: "Rp 1.000.000", originalMonthlyPrice: "Rp 175.000", originalAnnualPrice: "Rp 1.400.000", discountBadge: "DISKON 31%", savingsMonthlyNote: "Dibayar per tahun Rp 1.000.000 • termasuk domain & hosting", savingsAnnualNote: "Termasuk domain & hosting", ctaText: "Pilih Premium", features: ["3–7 Halaman (Katalog, Blog, Kontak)", "Fitur Toko & Kelola Produk", "Integrasi WhatsApp Checkout", "Payment Gateway (opsional)", "Kecepatan Tinggi & Basic SEO"] },
 ];
 
-const VISIBLE = 6;
-
-function ArrowIcon() {
-  return (
-    <svg
-      width="18"
-      height="18"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-    >
-      <path d="M5 12h14" />
-      <path d="m12 5 7 7-7 7" />
-    </svg>
-  );
+function CheckmarkIcon() {
+  return <svg className="h-4 w-4 shrink-0 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path clipRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fillRule="evenodd" /></svg>;
 }
 
-function CheckIcon({ className }: { className: string }) {
-  return (
-    <svg
-      className={className}
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-    >
-      <polyline points="20 6 9 17 4 12" />
-    </svg>
-  );
-}
-
-function CrossIcon({ className }: { className: string }) {
-  return (
-    <svg
-      className={className}
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-    >
-      <line x1="18" y1="6" x2="6" y2="18" />
-      <line x1="6" y1="6" x2="18" y2="18" />
-    </svg>
-  );
-}
-
-function ChevronIcon({ open }: { open: boolean }) {
-  return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-      className={`transition-transform duration-300 ${open ? "rotate-180" : ""}`}
-    >
-      <polyline points="6 9 12 15 18 9" />
-    </svg>
-  );
-}
-
-function PackageCard({ pkg }: { pkg: Pkg }) {
-  const [open, setOpen] = useState(false);
-  const visible = pkg.features.slice(0, VISIBLE);
-  const hidden = pkg.features.slice(VISIBLE);
-  const hasMore = hidden.length > 0;
-
-  return (
-    <motion.article
-      transition={{ type: "spring", stiffness: 260, damping: 22 }}
-      className={`relative flex flex-col rounded-2xl border bg-white transition-all hover:-translate-y-1 ${
-        pkg.featured
-          ? "border-2 border-wm-primary shadow-[0_15px_30px_-5px_rgba(37,99,235,0.15)] p-7 md:py-10 md:-my-3 lg:py-12 z-10"
-          : "border-wm-surface-2 p-7"
-      }`}
-    >
-      {pkg.featured && (
-        <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-wm-primary px-4 py-1 text-[10px] font-bold tracking-[0.08em] text-white">
-          PALING POPULER
-        </span>
-      )}
-
-      <div className="text-center">
-        <p className="text-xs font-bold tracking-[0.08em] text-wm-primary">
-          {pkg.label}
-        </p>
-        <h3 className="mt-3 text-lg font-bold text-wm-ink">{pkg.title}</h3>
-        <p className="mt-3 min-h-12 text-sm leading-relaxed text-wm-ink/70">
-          {pkg.description}
-        </p>
-        <div className="mt-6">
-          {pkg.priceMonthly ? (
-            <>
-              <strong className="block text-2xl font-extrabold tracking-tight text-wm-primary">
-                {pkg.priceMonthly}
-              </strong>
-              <p className="mt-1 text-xs text-wm-ink/60">
-                {pkg.price} per tahun
-              </p>
-            </>
-          ) : (
-            <strong className="block text-2xl font-extrabold tracking-tight text-wm-primary">
-              {pkg.price}
-            </strong>
-          )}
-        </div>
-      </div>
-
-      <ul className="mt-7 flex-1 space-y-2.5 border-t border-wm-surface-2 pt-6 text-left text-sm">
-        {visible.map((f) => (
-          <li key={f.text} className="flex items-start gap-2">
-            {f.included ? (
-              <CheckIcon className="mt-0.5 shrink-0 text-wm-primary" />
-            ) : (
-              <CrossIcon className="mt-0.5 shrink-0 text-wm-ink/30" />
-            )}
-            <span
-              className={
-                f.included ? "text-wm-ink/80" : "text-wm-ink/40 line-through"
-              }
-            >
-              {f.text}
-            </span>
-          </li>
-        ))}
-      </ul>
-
-      <div
-        className={`grid transition-[grid-template-rows] duration-500 ease-in-out ${
-          open ? "grid-rows-[1fr] mt-2" : "grid-rows-[0fr]"
-        }`}
-      >
-        <div className="overflow-hidden">
-          <ul className="space-y-2.5 pt-3 text-left text-sm">
-            {hidden.map((f) => (
-              <li key={f.text} className="flex items-start gap-2">
-                {f.included ? (
-                  <CheckIcon className="mt-0.5 shrink-0 text-wm-primary" />
-                ) : (
-                  <CrossIcon className="mt-0.5 shrink-0 text-wm-ink/30" />
-                )}
-                <span
-                  className={
-                    f.included
-                      ? "text-wm-ink/80"
-                      : "text-wm-ink/40 line-through"
-                  }
-                >
-                  {f.text}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      <div className="mt-7 flex flex-col gap-2">
-        {hasMore && (
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            aria-expanded={open}
-            className="inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-wm-ink/60 transition hover:text-wm-primary"
-          >
-            {open ? "Sembunyikan detail" : "Lihat detail"}
-            <ChevronIcon open={open} />
-          </button>
-        )}
-        <motion.a
-          href="#kontak"
-          className={`inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition ${
-            pkg.featured
-              ? "bg-wm-primary text-white hover:bg-wm-ink"
-              : "border border-wm-surface-2 text-wm-ink hover:border-wm-primary hover:text-wm-primary"
-          }`}
-        >
-          Pilih Paket Ini
-          <ArrowIcon />
-        </motion.a>
-      </div>
-    </motion.article>
-  );
+function ArrowRightIcon() {
+  return <svg className="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>;
 }
 
 export default function PricingSection() {
+  const [billingCycle, setBillingCycle] = useState<"monthly" | "annually">("monthly");
+  const isMonthly = billingCycle === "monthly";
+
   return (
-    <section id="harga" className="bg-wm-surface">
-      <div className="mx-auto max-w-[1200px] px-6 py-20 md:px-8 md:py-28">
-        <motion.div
-          className="mx-auto max-w-2xl text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
-        >
-          <p className="text-sm font-semibold uppercase tracking-[0.08em] text-wm-primary">
-            Pilih paket sesuai kebutuhan
-          </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-wm-ink md:text-4xl">
-            Mulai dari yang kamu butuhkan.
-          </h2>
-        </motion.div>
-        <div className="mt-12 flex flex-wrap justify-center items-start gap-6">
-          {packages.map((pkg, i) => (
-            <motion.div
-              key={pkg.title}
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.55, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] as const }}
-              className="w-full max-w-[360px]"
-            >
-              <PackageCard pkg={pkg} />
-            </motion.div>
-          ))}
+    <section id="harga" className="border-y border-slate-200/60 bg-slate-50/70 py-16 md:py-24">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mx-auto mb-10 max-w-2xl text-center">
+          <motion.div initial={{ opacity: 0, y: -10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-4 inline-flex items-center rounded-full border border-blue-100 bg-blue-50 px-4 py-1 text-xs font-bold uppercase tracking-wider text-blue-600">Paket & Harga</motion.div>
+          <motion.h2 initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-4 text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">Website Profesional,<br /><span className="text-blue-600">Harga Tetap Bersahabat</span></motion.h2>
+          <motion.p initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mx-auto max-w-xl text-sm leading-relaxed text-slate-500">Pilih paket yang sesuai dengan kebutuhan bisnis kamu. Semua paket sudah termasuk fitur penting untuk membantu bisnismu tumbuh di dunia digital.</motion.p>
+          <div className="mt-8 inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white p-1.5 shadow-sm">
+            <button type="button" onClick={() => setBillingCycle("monthly")} className={`flex items-center gap-2 rounded-full px-5 py-2 text-xs font-semibold transition-all ${isMonthly ? "bg-blue-600 text-white shadow-sm" : "text-slate-700 hover:text-slate-900"}`}>Bayar per bulan<span className={`rounded-full px-2 py-0.5 text-[10px] font-bold ${isMonthly ? "bg-white text-blue-600" : "bg-blue-100 text-blue-600"}`}>Lebih ringan</span></button>
+            <button type="button" onClick={() => setBillingCycle("annually")} className={`flex items-center gap-2 rounded-full px-5 py-2 text-xs font-semibold transition-all ${!isMonthly ? "bg-blue-600 text-white shadow-sm" : "text-slate-700 hover:text-slate-900"}`}>Bayar sekaligus<span className={`rounded-full px-2 py-0.5 text-[10px] font-bold ${!isMonthly ? "bg-white text-blue-600" : "bg-blue-100 text-blue-600"}`}>Lebih hemat</span></button>
+          </div>
         </div>
-        <p className="mt-8 text-center text-xs text-wm-ink/50">
-          Butuh sistem di luar paket di atas? Hubungi kami untuk konsultasi
-          Custom.
-        </p>
+
+        <div className="grid grid-cols-1 items-stretch gap-6 pt-4 md:grid-cols-3">
+          {plans.map((plan, idx) => {
+            const price = isMonthly ? plan.monthlyPrice : plan.annualPrice;
+            const originalPrice = isMonthly ? plan.originalMonthlyPrice : plan.originalAnnualPrice;
+            return <motion.div key={plan.id} initial={{ opacity: 0, y: 25 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: idx * 0.1 }} className={`relative flex flex-col justify-between rounded-2xl bg-white p-6 transition-all duration-300 sm:p-8 ${plan.popular ? "popular-card-wobble border-2 border-blue-600 shadow-xl md:-translate-y-2" : "border border-slate-200 shadow-sm hover:shadow-lg"}`}>
+              {plan.popular && <><div className="absolute -top-4 left-1/2 z-30 flex -translate-x-1/2 items-center gap-1.5 rounded-full bg-blue-600 px-6 py-2 text-[10px] font-extrabold uppercase tracking-wider text-white"><svg className="h-3.5 w-3.5 text-orange-300" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 2.5c.2 3.1-1.5 4.8-3.1 6.4-1.3 1.3-2.5 2.6-2.5 4.8 0 1.6.8 3 2.1 3.8-.1-.4-.2-.8-.2-1.3 0-1.5.8-2.7 2.1-3.9.3 1.8 1.5 2.8 2.4 3.7.8.8 1.4 1.6 1.4 2.8 0 .7-.2 1.3-.5 1.8 2.4-.9 4.1-3.2 4.1-5.9 0-3.7-2.5-6.8-5.8-12.2Z" /></svg><span>Recommended</span></div><div className="pointer-events-none absolute right-0 top-0 z-10 h-36 w-36 overflow-hidden rounded-tr-2xl"><div className="absolute right-[-35px] top-[24px] w-[150px] rotate-45 border-y border-white/20 bg-blue-600 py-1.5 text-center text-[10px] font-extrabold uppercase tracking-wider text-white shadow-md">★ TERLARIS</div></div></>}
+              <div>
+                <div className="mb-4 text-left"><h3 className="text-2xl font-bold text-slate-900">{plan.name}</h3><p className="mt-1.5 text-xs leading-relaxed text-slate-500">{plan.description}</p></div>
+                <div className="border-b border-slate-100 pb-6 pt-2"><div className="mb-1.5 flex items-center gap-2"><span className="text-xs text-slate-400 line-through">{originalPrice}</span><span className="rounded-full bg-blue-100/60 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-blue-600">{plan.discountBadge}</span></div><div className="flex items-baseline gap-1"><AnimatePresence mode="wait"><motion.span key={price} initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 4 }} className="text-3xl font-extrabold tracking-tight text-blue-600 sm:text-4xl">{price.replace("Rp ", "")}</motion.span></AnimatePresence><span className="text-xs font-semibold text-slate-500">{isMonthly ? "/bulan" : "/tahun"}</span></div></div>
+                <div className="space-y-3.5 pt-6 text-xs text-slate-600">{plan.features.map((feature) => <div key={feature} className="flex items-center gap-2"><CheckmarkIcon /><span>{feature}</span></div>)}</div>
+              </div>
+              <a href={`https://wa.me/6285196399108?text=${encodeURIComponent(`Halo Webmula, saya tertarik dengan paket ${plan.name} (${isMonthly ? "Bayar per bulan" : "Bayar sekaligus per tahun"}).`)}`} target="_blank" rel="noopener noreferrer" className="group mt-8 flex w-full items-center justify-center gap-2 rounded-xl border border-blue-200 bg-blue-50 px-4 py-3 text-xs font-bold text-blue-600 transition-all hover:bg-blue-100 sm:text-sm">{plan.ctaText}<ArrowRightIcon /></a>
+            </motion.div>;
+          })}
+        </div>
       </div>
     </section>
   );

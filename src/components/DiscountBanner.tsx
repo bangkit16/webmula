@@ -18,15 +18,9 @@ function DiscountBanner({
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -40, opacity: 0 }}
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-[#2563eb] to-[#00b4ff] py-2 text-center text-sm font-semibold text-white"
+          className="fixed left-0 right-0 top-0 z-[60] bg-blue-600 px-4 py-2 text-center text-xs font-medium tracking-wide text-white md:text-sm"
         >
-          <span className="mx-2">
-            Promo terbatas! Gunakan kode{" "}
-            <span className="inline-block rounded bg-white px-2 py-0.5 font-bold text-[#2563eb]">
-              WEB10
-            </span>{" "}
-            untuk diskon 10%
-          </span>
+          <span>Promo Terbatas! Diskon hingga <span className="font-bold underline">50%</span> untuk 10 UMKM pertama.</span>
           <button
             onClick={onClose}
             className="absolute right-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white"

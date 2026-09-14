@@ -9,7 +9,7 @@
   --color-wm-surface: #f3f4f6;
   --color-wm-surface-2: #e5e7eb;
 
-  --font-sans: var(--font-inter), "Inter", system-ui, sans-serif;
+  --font-sans: var(--font-poppins), "Poppins", system-ui, sans-serif;
 }
 
 :root {
@@ -52,6 +52,34 @@ body {
 }
 .bg-gradient-brand-soft {
   background-image: var(--gradient-brand-soft);
+}
+
+.popular-card-wobble {
+  animation: popular-card-wobble 5s ease-in-out infinite;
+}
+
+@keyframes popular-card-wobble {
+  0%, 88%, 100% {
+    transform: rotate(0deg) translateY(0);
+  }
+  90% {
+    transform: rotate(-0.7deg) translateY(-2px);
+  }
+  92% {
+    transform: rotate(0.7deg) translateY(-2px);
+  }
+  94% {
+    transform: rotate(-0.4deg) translateY(-1px);
+  }
+  96% {
+    transform: rotate(0deg) translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .popular-card-wobble {
+    animation: none;
+  }
 }
 
 /* Decorative blob for hero */

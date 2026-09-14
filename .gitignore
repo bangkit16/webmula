@@ -37,6 +37,9 @@ yarn-error.log*
 
 # vercel
 .vercel
+/graphify-out
+/stitch
+AGENTS.md
 
 # typescript
 *.tsbuildinfo
